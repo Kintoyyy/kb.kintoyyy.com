@@ -4,7 +4,6 @@ sidebar_position: 5
 
 # 🚫 Block Tethering
 
-
 Prevent clients from sharing your router's internet connection with other devices (tethering) by manipulating the TTL (Time To Live) value of outgoing packets. When a device tethers, packets pass through multiple hops—by setting TTL to 1, packets die after leaving your network, blocking tethered devices while allowing direct clients to work normally. This is a common ISP technique to enforce fair usage policies.
 
 :::info
@@ -20,6 +19,7 @@ Prevent clients from sharing your router's internet connection with other device
 
 :::warning
 **Side effects:** Some legitimate use cases may fail:
+
 - VPN clients may have issues
 - Docker/container networks may break
 - Gaming console online play might fail
@@ -33,11 +33,13 @@ Test in a controlled environment before production deployment.
 ### Option A: Terminal Configuration
 
 1. **Access the terminal** via SSH, console, or WebFig terminal
+
    ```bash
    ssh admin@your-router-ip
    ```
 
 2. **Add the TTL mangle rule:**
+
    ```routeros
    /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:1 \
        passthrough=no out-interface-list=""
@@ -45,23 +47,27 @@ Test in a controlled environment before production deployment.
 
    :::tip
    **For specific interfaces only** (e.g., LAN WiFi only):
+
    ```routeros
    /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:1 \
        passthrough=no out-interface=wlan0
    ```
+
    :::
 
 3. **Verify the rule was added:**
+
    ```routeros
    /ip firewall mangle print
    ```
+
    You should see the new rule with `action=change-ttl`.
 
 ### Option B: WebFig Configuration
 
 1. **Navigate to IP > Firewall > Mangle:**
    - Click the **+** button to add a new mangle rule
-   
+
 2. **Configure the rule:**
    - **General Tab:**
      - Chain: `postrouting`
@@ -87,6 +93,7 @@ Test in a controlled environment before production deployment.
 | `out-interface-list` | (empty) | Applies to all outgoing interfaces |
 
 **How it works:**
+
 1. Client sends packet (TTL = 64 by default)
 2. Router's mangle rule changes TTL to 1
 3. Packet reaches first hop on internet (TTL decrements to 0)
@@ -96,18 +103,22 @@ Test in a controlled environment before production deployment.
 ## Verification
 
 1. **Confirm mangle rule exists:**
+
    ```routeros
    /ip firewall mangle print
    ```
+
    Should show rule with `action=change-ttl` and `new-ttl=set:1`
 
 2. **Test from a client on your network (direct connection):**
+
    ```bash
    ping google.com
    # Should work fine
    ```
 
 3. **Check TTL value on received packets (Linux/Mac):**
+
    ```bash
    ping -c 1 8.8.8.8 | grep ttl
    # Example output: 64 bytes from 8.8.8.8: icmp_seq=1 ttl=56
@@ -121,9 +132,11 @@ Test in a controlled environment before production deployment.
    - Try accessing a website → should timeout
 
 5. **Monitor packet stats:**
+
    ```routeros
    /ip firewall mangle print stats
    ```
+
    `packets` counter should increase as rules process traffic
 
 ## Troubleshooting
@@ -139,36 +152,45 @@ Test in a controlled environment before production deployment.
 
 ## Advanced Options
 
-### Allow specific clients to tether (whitelist):
+### Allow specific clients to tether (whitelist)
+
 ```routeros
 /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:64 \
     src-address="192.168.0.100" passthrough=no
 /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:1 \
     passthrough=no out-interface-list=""
 ```
+
 (Whitelist rule must come BEFORE the blocking rule)
 
-### Block tethering from specific interface only:
+### Block tethering from specific interface only
+
 ```routeros
 /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:1 \
     in-interface=wlan0 passthrough=no
 ```
+
 (Only clients from WiFi affected; Ethernet clients can tether)
 
-### Log tethering attempts:
+### Log tethering attempts
+
 ```routeros
 /ip firewall mangle set [find action=change-ttl] log=yes
 ```
+
 Then check: `/log print where topics~"mangle"`
 
-### Gradual TTL instead of blocking completely:
+### Gradual TTL instead of blocking completely
+
 ```routeros
 /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:32 \
     passthrough=no out-interface-list=""
 ```
+
 (Allows one level of tethering but blocks deeper chains)
 
-### Different TTL for different subnets:
+### Different TTL for different subnets
+
 ```routeros
 # Block WiFi clients (192.168.1.0/24)
 /ip firewall mangle add action=change-ttl chain=postrouting new-ttl=set:1 \
@@ -191,6 +213,7 @@ Then check: `/log print where topics~"mangle"`
 ✅ **Tethering is now blocked!**
 
 **Next steps:**
+
 - Monitor your network for 24 hours to identify legitimate services affected
 - Whitelist critical devices if needed (admin workstations, servers)
 - Document which devices/services have issues for IT support tickets

@@ -10,12 +10,14 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
 
 :::info
 **What this does:**
+
 - Configures PPPoE server to accept user connections
 - Connects to remote RADIUS server for centralized authentication
 - Receives user group/tier from RADIUS response
 - Applies local QoS profiles based on RADIUS attributes
 - Registers AC identity with RADIUS server
 - Enables multi-location user authentication
+
 :::
 
 ## Prerequisites
@@ -32,6 +34,7 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
 
 :::warning
 **Access Concentrator considerations:**
+
 - AC does NOT store user database (RADIUS server does)
 - PPP profiles MUST match group names from RADIUS server
 - RADIUS server must know AC's loopback IP address
@@ -39,6 +42,7 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
 - If RADIUS unreachable, users cannot authenticate (no local fallback by default)
 - Each AC needs unique loopback IP registered on RADIUS
 - Scale to 1000+ users per AC (depends on hardware/bandwidth)
+
 :::
 
 ## Configuration Steps
@@ -46,17 +50,20 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
 ### Option A: Terminal Configuration (AC Router)
 
 1. **Access the AC terminal:**
+
    ```bash
    ssh admin@ac-router-ip
    ```
 
 2. **Assign loopback IP address to AC:**
+
    ```routeros
    /ip address
    add address=10.255.255.3 interface=lo network=10.255.255.3
    ```
 
 3. **Create IP pools for PPPoE users:**
+
    ```routeros
    /ip pool
    add name=POOL1 ranges=10.0.0.2-10.0.0.254
@@ -65,6 +72,7 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
    ```
 
 4. **Create PPP profiles matching RADIUS group names:**
+
    ```routeros
    /ppp profile
    add change-tcp-mss=yes local-address=10.0.0.1 \
@@ -78,24 +86,28 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
    ```
 
 5. **Configure PPPoE server on interface:**
+
    ```routeros
    /interface pppoe-server server
    add disabled=no interface=vlan100 service-name=service1
    ```
 
 6. **Enable RADIUS for PPP authentication:**
+
    ```routeros
    /ppp aaa
    set use-radius=yes
    ```
 
 7. **Add static PPP secret for fallback (optional):**
+
    ```routeros
    /ppp secret
    add local-address=10.0.0.1 name=local-user remote-address=10.0.0.2 service=pppoe
    ```
 
 8. **Configure RADIUS server address (point to central server):**
+
    ```routeros
    /radius
    add address=10.255.255.5 service=ppp
@@ -106,21 +118,25 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
    :::
 
 9. **Add RADIUS shared secret (must match RADIUS server config):**
+
    ```routeros
    /radius set [find service=ppp] shared-secret="SharedSecret123"
    ```
 
 10. **Verify AC is registered on RADIUS server:**
+
     ```bash
     # SSH to RADIUS server and check:
     ssh admin@radius-server-ip
     ```
+
     ```routeros
     /user-manager router print
     # Should show this AC's loopback IP (10.255.255.3) registered
     ```
 
 11. **Verify AC configuration:**
+
     ```routeros
     /ip address print where interface=lo
     /ppp aaa print
@@ -263,53 +279,66 @@ Step 8: User connected with 30Mbps bandwidth
 ## Verification
 
 1. **Verify AC loopback IP:**
+
    ```routeros
    /ip address print where interface=lo
    ```
+
    Should show: `10.255.255.3`
 
 2. **Check PPP profiles:**
+
    ```routeros
    /ppp profile print
    ```
+
    Should show: `10MBPS`, `20MBPS`, `30MBPS`
 
 3. **Verify IP pools:**
+
    ```routeros
    /ip pool print
    ```
 
 4. **Check RADIUS configuration on AC:**
+
    ```routeros
    /radius print
    /ppp aaa print
    ```
 
 5. **Test user connection from client:**
+
    ```bash
    pppoe-connect username:password
    ```
 
 6. **Monitor active PPPoE sessions:**
+
    ```routeros
    /ppp active print
    ```
 
 7. **Check assigned IPs:**
+
    ```routeros
    /ip address print
    ```
+
    Should show user IPs from POOL1/POOL2/POOL3
 
 8. **Verify RADIUS communication (check logs):**
+
    ```routeros
    /log print where topics~"radius"
    ```
 
 9. **Test from RADIUS server side:**
+
    ```bash
    ssh admin@radius-server
    ```
+
    ```routeros
    /user-manager user print
    # User connections should appear here
@@ -333,59 +362,69 @@ Step 8: User connected with 30Mbps bandwidth
 
 ## Advanced Options
 
-### Enable RADIUS session accounting (track duration/bytes):
+### Enable RADIUS session accounting (track duration/bytes)
+
 ```routeros
 /ppp aaa set accounting=yes
 /radius set [find service=ppp] accounting=yes
 ```
 
-### Create backup static users (fallback if RADIUS down):
+### Create backup static users (fallback if RADIUS down)
+
 ```routeros
 /ppp secret add name=backup-user remote-address=10.0.0.100 \
     local-address=10.0.0.1 service=pppoe
 ```
 
-### Add multiple RADIUS servers (primary + backup):
+### Add multiple RADIUS servers (primary + backup)
+
 ```routeros
 /radius add address=10.255.255.6 service=ppp
 # Uses first as primary, second as backup
 ```
 
-### Configure RADIUS timeout and retries:
+### Configure RADIUS timeout and retries
+
 ```routeros
 /radius set timeout=2 retries=3
 ```
 
-### Limit concurrent PPPoE connections per user:
+### Limit concurrent PPPoE connections per user
+
 ```routeros
 /ppp profile add name=10MBPS session-limit=2
 ```
 
-### Add QoS queue rules per pool:
+### Add QoS queue rules per pool
+
 ```routeros
 /queue simple add name="POOL1-QoS" target=10.0.0.0/24 \
     max-limit=10M/10M limit-at=1M/1M
 ```
 
-### Enable PPPoE statistics logging:
+### Enable PPPoE statistics logging
+
 ```routeros
 /system scheduler add name="pppoe-stats" interval=1h \
     on-event="/log info \"PPPoE Active: $[/ppp active print count-only]\""
 ```
 
-### Add per-profile bandwidth graphs:
+### Add per-profile bandwidth graphs
+
 ```routeros
 /interface ethernet set ether1 comment="PPPoE Uplink"
 /interface monitor-traffic ether1
 ```
 
-### Create VLAN-based AC segregation:
+### Create VLAN-based AC segregation
+
 ```routeros
 /interface vlan add name=vlan101 vlan-id=101 interface=ether2
 /interface pppoe-server server add interface=vlan101 service-name=service2
 ```
 
-### Configure idle timeout (disconnect inactive users):
+### Configure idle timeout (disconnect inactive users)
+
 ```routeros
 /ppp profile set [find name=10MBPS] idle-timeout=30m
 ```
@@ -395,6 +434,7 @@ Step 8: User connected with 30Mbps bandwidth
 ✅ **Access Concentrator configured!**
 
 **Next steps:**
+
 - Register this AC on the RADIUS server: `/user-manager router add address=10.255.255.3 name=ac1`
 - Test user login with credentials from RADIUS database
 - Monitor active sessions: `/ppp active print`

@@ -9,12 +9,14 @@ This is a **practical, hands-on knowledge base** for MikroTik networking and aut
 ## What you'll find here
 
 **🌐 MikroTik Networking** (15+ guides)
+
 - Firewall rules, routing, DNS, and DHCP configuration
 - Policy-based routing, VPN setup, and traffic prioritization
 - Monitoring, alerts, and email notifications
 - Performance optimization and bandwidth management
 
 **🤖 JuanFi System** (8 guides)
+
 - Vending machine automation and control
 - Sales dashboards and financial tracking
 - System maintenance and troubleshooting

@@ -4,11 +4,11 @@ sidebar_position: 11
 
 # 🔊 Beeper Alert
 
-
 Sound an audible alarm on your MikroTik device when the internet connection goes down. This script uses the built-in beeper to emit a series of alert tones at different frequencies, providing immediate physical notification that WAN connectivity is lost. Perfect for unattended server rooms, data centers, or remote installations where visual monitoring is impossible. Combines with NetWatch for automated failover detection.
 
 :::info
 **Compatible devices:**
+
 - HEX GR3, HEX S - Compact Ethernet routers with built-in beeper
 - HEX PoE - PoE-enabled variant
 - RB3011UiAS-RM - Rack mount 10-port router
@@ -29,8 +29,10 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 
 :::warning
 **Device compatibility:** Not all MikroTik devices have speakers. Check your device specs:
+
 - ✅ Has beeper: HEX, HEX S, HEX PoE, RB-series rack mounts
 - ❌ No beeper: Cloud Router Switch (CRS), Virtual Machine RouterOS, SwitchOS devices
+
 :::
 
 ## Configuration Steps
@@ -38,17 +40,21 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 ### Option A: Terminal Configuration (NetWatch Trigger)
 
 1. **Access the terminal** via SSH, console, or WebFig terminal
+
    ```bash
    ssh admin@your-router-ip
    ```
 
 2. **Verify beeper is available:**
+
    ```routeros
    :beep frequency=1000 length=100ms
    ```
+
    You should hear a 1000 Hz tone for 100ms. If not, device may not have beeper.
 
 3. **Create NetWatch entry for internet detection** (ping external DNS):
+
    ```routeros
    /tool netwatch add host=8.8.8.8 interval=10s down-script={
        :log error "> INTERNET DOWN!";
@@ -69,9 +75,11 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
    :::
 
 4. **Verify NetWatch was created:**
+
    ```routeros
    /tool netwatch print
    ```
+
    Should show entry monitoring 8.8.8.8 with down-script.
 
 ### Option B: WebFig Configuration (NetWatch Trigger)
@@ -85,6 +93,7 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 
 3. **Down Script Tab:**
    - Paste the alert script:
+
    ```routeros
    :log error "> INTERNET DOWN!";
    :for i from=1 to=10 do={  
@@ -100,6 +109,7 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 ### Option C: Manual Script Execution (Testing)
 
 1. **Create a script for manual testing:**
+
    ```routeros
    /system script add name="beep-alert" source={
        :log error "> INTERNET DOWN!";
@@ -113,9 +123,11 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
    ```
 
 2. **Run the script manually to test beeper:**
+
    ```routeros
    /system script run beep-alert
    ```
+
    Should hear: low tone (600Hz) → pause → high tone (1000Hz) → repeat 10 times
 
 ## Understanding the Script
@@ -171,46 +183,60 @@ But with processing: ~8-10 seconds actual
 ## Verification
 
 1. **Confirm beeper hardware exists:**
+
    ```routeros
    :beep frequency=440 length=200ms
    ```
+
    Test tone (should hear A note, 440 Hz).
 
 2. **Verify NetWatch monitor is active:**
+
    ```routeros
    /tool netwatch print
    ```
+
    Should show monitoring entry with correct down-script.
 
 3. **Check NetWatch status:**
+
    ```routeros
    /tool netwatch print status
    ```
+
    Should show current host status (up/down) and last check time.
 
 4. **Test down-script manually:**
+
    ```routeros
    /tool netwatch run [find host=8.8.8.8]
    ```
+
    Should trigger alert if 8.8.8.8 is unreachable.
 
 5. **Simulate internet down (firewall block):**
+
    ```routeros
    /ip firewall filter add action=drop chain=forward dst-address=8.8.8.8 protocol=icmp
    ```
+
    Wait for NetWatch interval → should hear alert
    Remove filter to restore: `/ip firewall filter remove [find dst-address=8.8.8.8]`
 
 6. **Check system logs:**
+
    ```routeros
    /log print where topics~"system"
    ```
+
    Should show `INTERNET DOWN!` entries when alerts triggered.
 
 7. **Monitor beeper resource usage:**
+
    ```routeros
    /system resource print
    ```
+
    Beeper uses minimal CPU (~1% during alert).
 
 ## Troubleshooting
@@ -228,14 +254,16 @@ But with processing: ~8-10 seconds actual
 
 ## Advanced Options
 
-### Single loud beep (critical alert):
+### Single loud beep (critical alert)
+
 ```routeros
 :beep frequency=4000 length=500ms;
 :delay 200ms;
 :beep frequency=4000 length=500ms;
 ```
 
-### Siren-like sound (frequency sweep):
+### Siren-like sound (frequency sweep)
+
 ```routeros
 :beep frequency=1000 length=100ms;
 :delay 100ms;
@@ -248,7 +276,8 @@ But with processing: ~8-10 seconds actual
 :beep frequency=1000 length=100ms;
 ```
 
-### Continuous alert until manual stop:
+### Continuous alert until manual stop
+
 ```routeros
 :local continue 1;
 :while ($continue = 1) do={
@@ -260,9 +289,10 @@ But with processing: ~8-10 seconds actual
 # Note: Requires manual script termination via `/system script job remove`
 ```
 
-### Different alert patterns for different failures:
+### Different alert patterns for different failures
 
 **Internet down (3 long beeps):**
+
 ```routeros
 :for i from=1 to=3 do={
     :beep frequency=1000 length=300ms;
@@ -271,6 +301,7 @@ But with processing: ~8-10 seconds actual
 ```
 
 **High CPU alert (rapid beeps):**
+
 ```routeros
 :for i from=1 to=20 do={
     :beep frequency=600 length=50ms;
@@ -279,6 +310,7 @@ But with processing: ~8-10 seconds actual
 ```
 
 **Low memory alert (warbling):**
+
 ```routeros
 :beep frequency=700 length=100ms;
 :delay 150ms;
@@ -289,8 +321,10 @@ But with processing: ~8-10 seconds actual
 :beep frequency=1000 length=100ms;
 ```
 
-### Alert with email notification:
+### Alert with email notification
+
 Combine with [Send Logs to Email](./send-logs-to-email.md):
+
 ```routeros
 :log error "> INTERNET DOWN - Triggering alerts";
 :for i from=1 to=10 do={  
@@ -302,7 +336,8 @@ Combine with [Send Logs to Email](./send-logs-to-email.md):
 # Email notification sent separately via email backup script
 ```
 
-### Escalating alert (faster beeps as time progresses):
+### Escalating alert (faster beeps as time progresses)
+
 ```routeros
 :for i from=1 to=10 do={
     :beep frequency=1000 length=100ms;
@@ -310,13 +345,15 @@ Combine with [Send Logs to Email](./send-logs-to-email.md):
 }
 ```
 
-### Alert with syslog integration:
+### Alert with syslog integration
+
 ```routeros
 :log error "CRITICAL: Internet Down - Beeper Alert Triggered";
 /log print where message~"CRITICAL" | /tool fetch url="http://syslog-server:514" keep-result=no;
 ```
 
-### Time-based alerts (disable during maintenance windows):
+### Time-based alerts (disable during maintenance windows)
+
 ```routeros
 :local hour [/system clock get hour];
 :if ($hour < 2 || $hour > 4) do={
@@ -376,6 +413,7 @@ Combine with [Send Logs to Email](./send-logs-to-email.md):
 ✅ **Internet down beeper alert is now active!**
 
 **Next steps:**
+
 - Test beeper hardware: `:beep frequency=1000 length=200ms`
 - Configure NetWatch to monitor WAN uplink
 - Simulate internet down to verify alert triggers
