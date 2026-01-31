@@ -463,7 +463,7 @@ User authenticated → Assigned IP → Traffic routed
 - [RADIUS Server Integration](./radius-server-integration) - Central authentication
 - [Access Concentrator Setup](./access-concentrator-setup) - PPPoE AC configuration
 - [Connect OLT](./connect-olt-aux) - OLT management connectivity
-- [Guest Bandwidth DHCP](./guest-bandwidth-dhcp-on-up) - QoS profiles
+- [Guest Bandwidth DHCP](../Bandwidth/guest-bandwidth-dhcp-on-up) - QoS profiles
 
 ## Completion
 

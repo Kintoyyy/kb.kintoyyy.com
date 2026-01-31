@@ -263,8 +263,8 @@ Remotely restart multiple JuanFi vending machines from your MikroTik router usin
 ## Related Guides
 
 - [Vendo Nightlight Control](./vendo-nightlight-control)
-- [NetWatch Telegram Alerts](../netwatch-telegram-alerts)
-- [Send Logs to Email](../send-logs-to-email)
+- [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
+- [Send Logs to Email](../Email/send-logs-to-email)
 
 ## Completion
 

@@ -524,7 +524,7 @@ sudo ufw delete allow 7567
 ## Related Guides
 
 - [Post-Install Configuration](./post-install-configuration) - Proxmox host optimization before deployment
-- [Smokeping Multi-Docker Deployment](./smokeping-multi-docker-deployment) - Network monitoring for managed devices
+- [OpenWRT LXC Auto Creation](./openwrt-lxc-auto-creation) - Lightweight service containers
 - [Install MikroTik CHR](./install-mikrotik-chr) - CPE device alternatives for testing
 
 ## Completion

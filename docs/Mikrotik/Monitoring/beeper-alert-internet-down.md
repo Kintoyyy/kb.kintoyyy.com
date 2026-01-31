@@ -323,7 +323,7 @@ But with processing: ~8-10 seconds actual
 
 ### Alert with email notification
 
-Combine with [Send Logs to Email](./send-logs-to-email):
+Combine with [Send Logs to Email](../Email/send-logs-to-email):
 
 ```routeros
 :log error "> INTERNET DOWN - Triggering alerts";

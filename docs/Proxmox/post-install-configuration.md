@@ -249,7 +249,7 @@ tail -f /var/log/apt/history.log
 ## Related Guides
 
 - [Install MikroTik CHR](./install-mikrotik-chr) - Next step after post-install
-- [Proxmox Storage Configuration](../Proxmox/storage-config) (if available)
+- [OpenWRT LXC Auto Creation](./openwrt-lxc-auto-creation) - Next steps for container workloads
 
 ## Completion
 

@@ -598,9 +598,9 @@ exit
 
 ## Related Guides
 
-- [NetWatch Telegram Alerts](./netwatch-telegram-alerts) - Monitoring and alerts
-- [Beeper Alert Internet Down](./beeper-alert-internet-down) - Audio monitoring
-- [Send Logs to Email](./send-logs-to-email) - Log collection
+- [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts) - Monitoring and alerts
+- [Beeper Alert Internet Down](../Monitoring/beeper-alert-internet-down) - Audio monitoring
+- [Send Logs to Email](../Email/send-logs-to-email) - Log collection
 
 ## Completion
 

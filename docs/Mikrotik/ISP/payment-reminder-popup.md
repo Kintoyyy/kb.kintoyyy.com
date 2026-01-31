@@ -372,7 +372,7 @@ Use `on-down` script on active PPP profile to assign expired profile.
 ```
 
 ### Email notification when user reaches expired state:
-See [Email Backup](./email-backup) and [Send Logs to Email](./send-logs-to-email) for SMTP setup.
+See [Email Backup](../Email/email-backup) and [Send Logs to Email](../Email/send-logs-to-email) for SMTP setup.
 
 ## Security Considerations
 

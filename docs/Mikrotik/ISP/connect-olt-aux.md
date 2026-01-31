@@ -345,7 +345,7 @@ srcnat chain (Source NAT):
 This guide covers basic AUX connection. For full OLT setup, see complementary guides:
 - **VLAN configuration** for subscriber lines
 - **QoS policies** for service prioritization
-- **Monitoring dashboards** with [NetWatch Telegram Alerts](./netwatch-telegram-alerts)
+- **Monitoring dashboards** with [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
 - **Backup/failover** scenarios
 
 ## Related Configurations
@@ -363,7 +363,7 @@ This guide covers basic AUX connection. For full OLT setup, see complementary gu
 - Test connectivity: `ping 192.168.8.1`
 - Log into OLT management interface
 - Configure OLT subscriber line provisioning
-- Set up monitoring alerts (see [NetWatch Telegram](./netwatch-telegram-alerts))
+- Set up monitoring alerts (see [NetWatch Telegram](../Monitoring/netwatch-telegram-alerts))
 - Document IP addressing scheme for team
 - Back up configuration: `/system backup save`
 - Schedule failover testing quarterly
