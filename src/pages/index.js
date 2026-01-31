@@ -29,7 +29,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className={styles.secondaryButton}
-            to="/docs/category/mikrotik-guides">
+            to="/docs/category/mikrotik">
             🔧 MikroTik Guides
           </Link>
         </div>
@@ -157,12 +157,12 @@ export default function Home() {
                 <h3>Read the Introduction</h3>
                 <p>Get familiar with the knowledge base structure and navigation</p>
               </Link>
-              <Link to="/docs/category/security" className={styles.quickStartCard}>
+              <Link to="/docs/category/-security--firewall" className={styles.quickStartCard}>
                 <div className={styles.quickStartIcon}>🔒</div>
                 <h3>Security & Firewall</h3>
                 <p>Secure your network with proven firewall configurations</p>
               </Link>
-              <Link to="/docs/category/routing" className={styles.quickStartCard}>
+              <Link to="/docs/category/-routing--pbr" className={styles.quickStartCard}>
                 <div className={styles.quickStartIcon}>🌐</div>
                 <h3>Routing Guides</h3>
                 <p>Master traffic routing and policy-based forwarding</p>
@@ -183,20 +183,16 @@ export default function Home() {
               Get in Touch
             </Heading>
             <p className={styles.connectDescription}>
-              Have questions or feedback? Found a missing guide? We'd love to hear from you!
+              Have questions or feedback? Found a missing guide? I'd love to hear from you!
             </p>
             <div className={styles.contactLinks}>
-              <a href="https://github.com" className={styles.contactLink} target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Kintoyyy" className={styles.contactLink} target="_blank" rel="noopener noreferrer">
                 <span>🐙</span>
                 <span>GitHub</span>
               </a>
-              <a href="mailto:contact@example.com" className={styles.contactLink}>
+              <a href="mailto:kent.oyyyyyyy@gmail.com" className={styles.contactLink}>
                 <span>✉️</span>
                 <span>Email</span>
-              </a>
-              <a href="https://twitter.com" className={styles.contactLink} target="_blank" rel="noopener noreferrer">
-                <span>𝕏</span>
-                <span>Twitter</span>
               </a>
             </div>
           </div>
