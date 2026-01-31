@@ -18,13 +18,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/docs/tutorial-basics
-/docs/tutorial-extras
-/blog
-/blog
-/blog
-blog/2019-05-28-first-blog-post.md
-blog/2019-05-29-long-blog-post.md
-blog/2021-08-01-mdx-blog-post.mdx
-blog/2021-08-26-welcome/docusaurus-plushie-banner.jpeg
-blog/2021-08-26-welcome/index.md
