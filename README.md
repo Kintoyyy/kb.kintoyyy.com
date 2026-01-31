@@ -1,41 +1,12 @@
-# Website
+# Knowledge Base - Kintoyyy
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+A practical, hands-on knowledge base for **MikroTik networking** and **JuanFi vending system automation**. Every guide includes real-world configurations, troubleshooting strategies, and repeatable procedures.
 
-## Installation
+**Live Site:** https://kb.kintoyyy.com/
 
-```bash
-yarn
-```
+## Content
 
-## Local Development
-
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- **15+ MikroTik Guides** - Firewall, routing, monitoring, traffic management, VPN
+- **8 JuanFi System Guides** - Vending machine automation and management
+- **Verified Configurations** - Each guide tested with specific RouterOS versions
+- **Dual Documentation** - Terminal AND WebFig GUI instructions for every procedure
