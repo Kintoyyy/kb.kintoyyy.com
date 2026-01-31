@@ -13,7 +13,7 @@ Automatically collect system logs from your MikroTik router and email them to yo
 - ✅ Gmail account (or SMTP server credentials)
 - ✅ Email service already configured (see [Email Backup](./email-backup.md) for setup)
 - ✅ Router has internet connectivity
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Sufficient disk space for temporary log files
 
 :::info
@@ -24,7 +24,7 @@ This guide assumes you've already configured SMTP settings. If not, complete the
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -69,7 +69,7 @@ This guide assumes you've already configured SMTP settings. If not, complete the
    /system scheduler add name="daily-logs" on-event="send-logs-email" start-time=03:00:00 interval=1d
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to System > Scripts:**
    - Click the **+** button to add a new script

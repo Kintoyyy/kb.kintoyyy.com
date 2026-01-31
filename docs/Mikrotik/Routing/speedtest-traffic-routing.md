@@ -19,7 +19,7 @@ Detect speedtest traffic in real-time and route it through a dedicated gateway u
 - ✅ MikroTik RouterOS with mangle/routing support
 - ✅ Multiple WAN connections or dedicated gateway
 - ✅ Local network defined via address list (`local-ip`)
-- ✅ Access to RouterOS console (terminal, WebFig, or WinBox)
+- ✅ Access to RouterOS console (terminal, Winbox, or WinBox)
 - ✅ RouterOS v6.41+
 
 :::warning
@@ -103,7 +103,7 @@ Detect speedtest traffic in real-time and route it through a dedicated gateway u
    /ip route print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Setup local IP address list:**
    - Navigate to IP > Firewall > Address List

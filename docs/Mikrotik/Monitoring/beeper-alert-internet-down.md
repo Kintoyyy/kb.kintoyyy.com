@@ -21,7 +21,7 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 ## Prerequisites
 
 - ✅ MikroTik RouterOS device with **audio output/beeper** (HEX series, RB series)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Physical location with audible range (server room, office, etc.)
 - ✅ Internet connectivity detection method (NetWatch, script, or failover trigger)
 - ✅ RouterOS v6.41+ for reliable beeper operation
@@ -39,7 +39,7 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 
 ### Option A: Terminal Configuration (NetWatch Trigger)
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
 
    ```bash
    ssh admin@your-router-ip
@@ -82,7 +82,7 @@ Sound an audible alarm on your MikroTik device when the internet connection goes
 
    Should show entry monitoring 8.8.8.8 with down-script.
 
-### Option B: WebFig Configuration (NetWatch Trigger)
+### Option B: Winbox Configuration (NetWatch Trigger)
 
 1. **Navigate to Tools > NetWatch:**
    - Click **+** to add new entry

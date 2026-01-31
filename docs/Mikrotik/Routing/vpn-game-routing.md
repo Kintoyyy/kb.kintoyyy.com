@@ -21,7 +21,7 @@ Route gaming traffic through a VPN tunnel while keeping regular internet on dire
 - ✅ MikroTik RouterOS with OpenVPN support
 - ✅ VPN credentials (username, password, server IP)
 - ✅ WAN/ISP connection active
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Basic firewall knowledge
 - ✅ RouterOS v6.48+
 
@@ -64,15 +64,15 @@ Route gaming traffic through a VPN tunnel while keeping regular internet on dire
 4. **Create local IP address list:**
    ```routeros
    /ip firewall address-list
-   add address=192.168.0.0/16 list=LOCAL-IP
-   add address=172.16.0.0/12 list=LOCAL-IP
-   add address=10.0.0.0/8 list=LOCAL-IP
+   add address=192.168.0.0/16 list=local-ip
+   add address=172.16.0.0/12 list=local-ip
+   add address=10.0.0.0/8 list=local-ip
    ```
 
 5. **Add routing mark rule:**
    ```routeros
    /ip firewall mangle add action=mark-routing chain=prerouting \
-       src-address-list=LOCAL-IP dst-address-list=GAMES_IP \
+       src-address-list=local-ip dst-address-list=GAMES_IP \
        new-routing-mark=vpn-routing-game passthrough=no comment="VPN-GAME"
    ```
 
@@ -95,12 +95,12 @@ Route gaming traffic through a VPN tunnel while keeping regular internet on dire
    /ip firewall raw
    add action=add-dst-to-address-list address-list="GAMES_IP" \
        address-list-timeout=1d chain=prerouting comment="Mobile Legends - TCP" \
-       dst-address-list=!LOCAL-IP dst-port=5001-5180,5501-5680,9443,30000-30220,9001 \
+       dst-address-list=!local-ip dst-port=5001-5180,5501-5680,9443,30000-30220,9001 \
        protocol=tcp
    
    add action=add-dst-to-address-list address-list="GAMES_IP" \
        address-list-timeout=1d chain=prerouting comment="Mobile Legends - UDP" \
-       dst-address-list=!LOCAL-IP dst-port=5001-5180,5501-5680,9992,30020-30220,9001 \
+       dst-address-list=!local-ip dst-port=5001-5180,5501-5680,9992,30020-30220,9001 \
        protocol=udp
    ```
 
@@ -113,7 +113,7 @@ Route gaming traffic through a VPN tunnel while keeping regular internet on dire
    /ip firewall raw print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Create OpenVPN Client:**
    - Navigate to Interfaces > OpenVPN Client
@@ -137,15 +137,15 @@ Route gaming traffic through a VPN tunnel while keeping regular internet on dire
 3. **Create Address Lists:**
    - Navigate to IP > Firewall > Address List
    - Add three entries:
-     - `192.168.0.0/16` → List: `LOCAL-IP`
-     - `172.16.0.0/12` → List: `LOCAL-IP`
-     - `10.0.0.0/8` → List: `LOCAL-IP`
+     - `192.168.0.0/16` → List: `local-ip`
+     - `172.16.0.0/12` → List: `local-ip`
+     - `10.0.0.0/8` → List: `local-ip`
 
 4. **Add Mangle Rule:**
    - Navigate to IP > Firewall > Mangle
    - Click **+**
    - Chain: `prerouting`
-   - Src. Address List: `LOCAL-IP`
+   - Src. Address List: `local-ip`
    - Dst. Address List: `GAMES_IP`
    - Action: `mark-routing`
    - New Routing Mark: `vpn-routing-game`
@@ -253,17 +253,17 @@ VPN Server: Forwards to Game Server (appears from VPN IP)
 ```routeros
 # DOTA 2
 /ip firewall raw add action=add-dst-to-address-list address-list="GAMES_IP" \
-    chain=prerouting dst-address-list=!LOCAL-IP dst-port=27000-27030 protocol=tcp
+    chain=prerouting dst-address-list=!local-ip dst-port=27000-27030 protocol=tcp
 
 # Call of Duty Warzone
 /ip firewall raw add action=add-dst-to-address-list address-list="GAMES_IP" \
-    chain=prerouting dst-address-list=!LOCAL-IP dst-port=3074 protocol=tcp
+    chain=prerouting dst-address-list=!local-ip dst-port=3074 protocol=tcp
 ```
 
 ### Exclude specific IPs from VPN:
 ```routeros
 /ip firewall mangle add action=mark-routing chain=prerouting \
-    src-address-list=LOCAL-IP dst-address-list=!GAMES_IP \
+    src-address-list=local-ip dst-address-list=!GAMES_IP \
     new-routing-mark=direct-routing passthrough=no comment="Direct Traffic"
 
 /ip route add gateway="192.168.1.1" routing-mark=direct-routing comment="Direct Route"

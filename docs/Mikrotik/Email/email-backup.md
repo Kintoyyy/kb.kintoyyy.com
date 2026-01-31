@@ -12,7 +12,7 @@ Automatically export your MikroTik router configuration and send it via email. T
 - ✅ Gmail account (or SMTP server credentials)
 - ✅ Router has internet connectivity
 - ✅ System time is set correctly (for date-stamped backups)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 
 :::info
 This guide uses Gmail SMTP. If using a different email provider, adjust the SMTP settings accordingly.
@@ -22,7 +22,7 @@ This guide uses Gmail SMTP. If using a different email provider, adjust the SMTP
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -63,7 +63,7 @@ This guide uses Gmail SMTP. If using a different email provider, adjust the SMTP
    /system scheduler add name="daily-backup" on-event="email-backup" start-time=02:00:00 interval=1d
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to Tools > E-mail:**
    - Address: `smtp.gmail.com`

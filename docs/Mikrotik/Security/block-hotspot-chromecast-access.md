@@ -18,7 +18,7 @@ Prevent guests on your hotspot network from discovering and controlling ChromeCa
 
 - ✅ MikroTik RouterOS device with firewall filter support
 - ✅ Separate subnets for hotspot and LAN (e.g., 10.0.0.0/20 for hotspot, 192.168.0.0/24 for LAN)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ ChromeCast or compatible devices on LAN subnet
 - ✅ Hotspot network configured with DHCP or static IPs in hotspot subnet
 
@@ -30,7 +30,7 @@ Prevent guests on your hotspot network from discovering and controlling ChromeCa
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -65,7 +65,7 @@ Prevent guests on your hotspot network from discovering and controlling ChromeCa
    **Adjust subnets:** Replace `10.0.0.0/20` with your hotspot subnet and `192.168.0.0/24` with your LAN subnet.
    :::
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 #### Part 1: Create Address Lists
 

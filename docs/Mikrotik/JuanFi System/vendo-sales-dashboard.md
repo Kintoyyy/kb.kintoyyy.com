@@ -26,7 +26,7 @@ Generate a centralized sales dashboard report from all JuanFi vending machines, 
   - `/admin/api/dashboard` (balance, sales data)
 - ✅ Vendo static IP addresses configured
 - ✅ API key for authentication
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ RouterOS v6.48+
 
 :::warning
@@ -123,7 +123,7 @@ Generate a centralized sales dashboard report from all JuanFi vending machines, 
    /system note print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to System > Scripts:**
    - Click **+**

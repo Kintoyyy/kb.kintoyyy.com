@@ -105,7 +105,7 @@ All technical gui** (NO "## Overview" section - start directly with content)
 4. **Prerequisites** - Checklist of requirements (✅ style)
 5. **Prerequisites** - Checklist of requirements (✅ style)
 4. **Warning Box** - Specific considerations/caveats
-5. **Configuration Steps** - Option A (Terminal) and Option B (WebFig)
+5. **Configuration Steps** - Option A (Terminal) and Option B (Winbox)
 6. **Understanding the Configuration** - Flow diagram + Components table
 7. **Verification** - Step-by-step tests with specific commands
 8. **Troubleshooting** - Issue/Cause/Solution table (10-12+ rows minimum)
@@ -147,9 +147,9 @@ See `blog/authors.yml` and `blog/tags.yml` for available values.
 MikroTik guides use RouterOS scripting syntax. Key conventions:
 - **Terminal code blocks** use `routeros` language tag for syntax highlighting
 - **Variables** use MikroTik syntax: `:local varname` (not bash `$variable`)
-- **Always provide BOTH terminal AND WebFig approaches** (never GUI-only)
+- **Always provide BOTH terminal AND Winbox approaches** (never GUI-only)
 - **Terminal examples** include realistic IP addresses/gateway names that MUST be replaced
-- **WebFig steps** describe exact navigation path with field values
+- **Winbox steps** describe exact navigation path with field values
 
 ---
 
@@ -210,7 +210,7 @@ See `docs/Mikrotik/cloud-ddns-routing.md` for complete pattern:
 - Info box with key bullet points
 - Prerequisites checklist with ✅ style
 - Warning box for caveats
-- Option A (Terminal) / Option B (WebFig) configuration
+- Option A (Terminal) / Option B (Winbox) configuration
 - Understanding section with flow diagram + components table
 - Verification steps with specific RouterOS commands
 - Troubleshooting table (minimum 10-12 rows)
@@ -286,7 +286,7 @@ See `docs/Mikrotik/_category_.json` and `docs/Mikrotik/JuanFi System/_category_.
 - **Front matter matters:** Missing `sidebar_position` can cause doc ordering issues
 - **Category descriptions auto-generate index pages**—no need to manually create index.md files
 - **RouterOS code blocks:** MUST use `routeros` language tag, not generic `bash` or `shell`
-- **Dual configuration:** Every technical guide requires both terminal AND WebFig approaches—never GUI-only or terminal-only
+- **Dual configuration:** Every technical guide requires both terminal AND Winbox approaches—never GUI-only or terminal-only
 - **Cross-references:** Link related guides at the end of each guide for discoverability
 - **Troubleshooting depth:** Minimum 10-12 rows in troubleshooting tables covering edge cases and common issues
 - **Advanced options:** Provide 8-12+ practical variations/extensions beyond basic configuration

@@ -15,7 +15,7 @@ Set up advanced firewall rules to manage Starlink connectivity and control traff
 
 - ✅ MikroTik RouterOS device with firewall support
 - ✅ Starlink dish/router connected to your network
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Knowledge of your local network subnet (usually 192.168.x.0 or 10.0.0.0)
 - ✅ Starlink device IP address (commonly 192.168.100.1)
 
@@ -27,7 +27,7 @@ Set up advanced firewall rules to manage Starlink connectivity and control traff
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -75,7 +75,7 @@ Set up advanced firewall rules to manage Starlink connectivity and control traff
        dst-address-list="STARLINK_IP" src-address-list=local
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 #### Part 1: Create Address Lists
 

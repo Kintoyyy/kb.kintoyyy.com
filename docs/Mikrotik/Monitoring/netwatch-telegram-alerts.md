@@ -20,7 +20,7 @@ Send real-time Telegram notifications when network devices go up or down using M
 - ✅ MikroTik RouterOS device with NetWatch support
 - ✅ Telegram Bot API token (create bot with @BotFather)
 - ✅ Telegram chat ID (your personal chat or group chat)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Target IP address to monitor (e.g., 10.1.3.239)
 - ✅ Router has internet connectivity for HTTPS to Telegram API
 
@@ -53,7 +53,7 @@ Send real-time Telegram notifications when network devices go up or down using M
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -96,7 +96,7 @@ Send real-time Telegram notifications when network devices go up or down using M
    /tool netwatch run [find host=10.1.3.239]
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to Tools > NetWatch:**
    - Click the **+** button to add a new entry

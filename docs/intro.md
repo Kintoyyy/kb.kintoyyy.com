@@ -26,12 +26,12 @@ This is a **practical, hands-on knowledge base** for MikroTik networking and aut
 - **Browse the sidebar** to explore MikroTik or JuanFi sections
 - **Search** for specific commands, errors, or features
 - **Start with the basics** if new to MikroTik
-- **Each guide includes** terminal commands AND WebFig GUI steps
+- **Each guide includes** terminal commands AND Winbox GUI steps
 
 ## Guide Features
 
 ✅ Prerequisites and dependencies  
-✅ Step-by-step configuration (Terminal + WebFig)  
+✅ Step-by-step configuration (Terminal + Winbox)  
 ✅ Verification procedures  
 ✅ Troubleshooting tables with solutions  
 ✅ Advanced options and variations  

@@ -20,7 +20,7 @@ Automatically apply per-guest bandwidth limits using a DHCP on-up script. When g
 - ✅ MikroTik RouterOS device with queue support
 - ✅ DHCP server configured on the router
 - ✅ Guest network subnet separate from main LAN (e.g., 10.0.0.0/20)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Parent queue already created (e.g., "10.Lan-Guestx" for guest LAN)
 - ✅ RouterOS v6.43+ for reliable queue operations
 
@@ -32,7 +32,7 @@ Automatically apply per-guest bandwidth limits using a DHCP on-up script. When g
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -83,7 +83,7 @@ Automatically apply per-guest bandwidth limits using a DHCP on-up script. When g
    ```
    You should see the on-up script in the output.
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to IP > DHCP Server:**
    - Click on your DHCP server (e.g., `default`)

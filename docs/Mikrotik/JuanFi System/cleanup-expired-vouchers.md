@@ -20,7 +20,7 @@ Automatically identify and remove expired hotspot voucher users that no longer h
 
 - ✅ MikroTik RouterOS device with hotspot configured
 - ✅ Hotspot users created with schedulers (vouchers)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ User profile name (e.g., "HS-default")
 - ✅ RouterOS v6.41+
 - ✅ Scheduled to run periodically (nightly recommended)
@@ -105,7 +105,7 @@ Automatically identify and remove expired hotspot voucher users that no longer h
    /system script print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to System > Scripts:**
    - Click **+**

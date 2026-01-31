@@ -23,7 +23,7 @@ Remotely restart multiple JuanFi vending machines from your MikroTik router usin
 - ✅ Vendo devices with static IP addresses
 - ✅ API credentials (vendo IPs + API key)
 - ✅ Network connectivity between MikroTik and vendos
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ RouterOS v6.48+
 
 :::warning
@@ -94,7 +94,7 @@ Remotely restart multiple JuanFi vending machines from your MikroTik router usin
    /system script print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to System > Scripts:**
    - Click **+**

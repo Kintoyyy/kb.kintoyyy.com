@@ -20,7 +20,7 @@ Route MikroTik cloud DDNS updates through a specific gateway to ensure reliable 
 
 - ✅ MikroTik RouterOS with cloud support (v6.43+)
 - ✅ Multiple internet gateways or ISPs (optional but recommended)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ MikroTik account for cloud services
 - ✅ Router connected to internet
 
@@ -88,7 +88,7 @@ Route MikroTik cloud DDNS updates through a specific gateway to ensure reliable 
    /ip route print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Enable Cloud DDNS:**
    - Navigate to IP > Cloud

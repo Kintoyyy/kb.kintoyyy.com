@@ -14,7 +14,7 @@ Force all clients on your network to use Google's DNS (8.8.8.8) regardless of th
 
 - ✅ MikroTik RouterOS device with router OS v6.41+
 - ✅ DHCP server enabled (or static IP clients)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Network subnet to enforce (e.g., 192.168.0.0/24)
 - ✅ Internet connectivity to validate DNS resolution
 
@@ -26,7 +26,7 @@ This guide enforces DNS for subnet `192.168.0.0/24`. Adjust the subnet to match 
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -61,7 +61,7 @@ This guide enforces DNS for subnet `192.168.0.0/24`. Adjust the subnet to match 
    ```
    :::
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 #### Part 1: Set Router DNS
 

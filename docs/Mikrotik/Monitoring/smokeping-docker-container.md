@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 🐳 Smokeping Docker Container
+# 🐳 Smokeping Container
 
 Deploy Smokeping network latency monitoring tool as a Docker container on MikroTik RouterOS. Smokeping continuously pings multiple targets and generates visual graphs showing network latency patterns, packet loss, and jitter over time. Running Smokeping in a container isolates the monitoring service while providing web-based access to historical performance data. Useful for ISPs tracking uptime, diagnosing network issues, monitoring SLA compliance, and identifying intermittent connectivity problems.
 
@@ -147,7 +147,7 @@ Deploy Smokeping network latency monitoring tool as a Docker container on MikroT
     /container shell [find name="smokeping:latest"]
     ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Create mounts:**
    - Navigate to Container > Mounts

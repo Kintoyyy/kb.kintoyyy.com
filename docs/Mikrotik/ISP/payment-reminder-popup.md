@@ -22,7 +22,7 @@ Display a payment reminder popup/image to users whose service has expired, while
 - ✅ User authentication system (PPP, Hotspot, or manual address-list)
 - ✅ Hosting service for payment reminder image (e.g., freeimage.host, Imgur, or own server)
 - ✅ Payment page URL or link (e.g., iili.io, your payment portal)
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Separate subnet for expired users (e.g., 10.200.0.0/24)
 
 :::warning
@@ -38,7 +38,7 @@ Display a payment reminder popup/image to users whose service has expired, while
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -112,7 +112,7 @@ Display a payment reminder popup/image to users whose service has expired, while
     Replace `iili.io/fLtjFkJ.md.png` with your actual payment reminder image URL.
     :::
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 #### Part 1: Create Loopback Address
 

@@ -21,7 +21,7 @@ Establish a management connection between your MikroTik router and an OLT (Optic
 - ✅ OLT device with AUX/management port (EPON or GPON)
 - ✅ Ethernet cable connecting OLT AUX to MikroTik port (e.g., ether5)
 - ✅ OLT AUX port configured in same subnet or routable network
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Access to OLT management interface
 - ✅ Network diagram showing OLT and MikroTik connectivity
 
@@ -37,7 +37,7 @@ Establish a management connection between your MikroTik router and an OLT (Optic
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -85,7 +85,7 @@ Establish a management connection between your MikroTik router and an OLT (Optic
    - Verify `ether4-OLT` is the correct uplink interface name
    :::
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 #### Part 1: Assign IP Address
 

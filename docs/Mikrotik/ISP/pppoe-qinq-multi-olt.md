@@ -163,9 +163,9 @@ Deploy PPPoE server with QinQ (IEEE 802.1ad) VLAN tagging to aggregate multiple 
    /interface bridge vlan print
    ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
-#### PPPoE Server (WebFig)
+#### PPPoE Server (Winbox)
 
 1. **Create QinQ VLANs:**
    - Navigate to Interfaces > VLAN
@@ -186,7 +186,7 @@ Deploy PPPoE server with QinQ (IEEE 802.1ad) VLAN tagging to aggregate multiple 
    - Click **OK**
    - Repeat for `svlan2001` with service name `service2` and range `1,10,200`
 
-#### CRS317 Switch 1 (WebFig)
+#### CRS317 Switch 1 (Winbox)
 
 1. **Create bridge:**
    - Navigate to Bridge
@@ -215,7 +215,7 @@ Deploy PPPoE server with QinQ (IEEE 802.1ad) VLAN tagging to aggregate multiple 
      - VLAN IDs: `2001`
      - Tagged: `ether1 to PPPoE Server, ether2 to CRS2`
 
-#### CRS317 Switch 2 (WebFig)
+#### CRS317 Switch 2 (Winbox)
 
 1. **Create bridge:**
    - Navigate to Bridge

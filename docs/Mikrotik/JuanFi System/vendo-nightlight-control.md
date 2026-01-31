@@ -23,7 +23,7 @@ Remotely control nightlight (LED lighting) on multiple JuanFi vending machines f
 - ✅ Vendo devices have assigned static IP addresses
 - ✅ API credentials from vendo (IP address + API key)
 - ✅ Network connectivity between MikroTik and all vendos
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ RouterOS v6.48+ for reliable HTTP POST operations
 
 :::warning
@@ -37,7 +37,7 @@ Remotely control nightlight (LED lighting) on multiple JuanFi vending machines f
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
    ```bash
    ssh admin@your-router-ip
    ```
@@ -105,7 +105,7 @@ Remotely control nightlight (LED lighting) on multiple JuanFi vending machines f
    ```
    Should show `vendo-nightlight-control` and `vendo-nightlight-on`.
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to System > Scripts:**
    - Click **+** to add new script

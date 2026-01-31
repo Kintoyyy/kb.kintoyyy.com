@@ -147,7 +147,7 @@ Deploy Smokeping network latency monitoring tool as a Docker container on MikroT
     /container shell [find name="smokeping:latest"]
     ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Create mounts:**
    - Navigate to Container > Mounts

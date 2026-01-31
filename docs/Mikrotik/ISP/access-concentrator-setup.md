@@ -145,7 +145,7 @@ Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user 
     /ip pool print
     ```
 
-### Option B: WebFig Configuration (AC Router)
+### Option B: Winbox Configuration (AC Router)
 
 1. **Set loopback IP:**
    - Navigate to IP > Addresses

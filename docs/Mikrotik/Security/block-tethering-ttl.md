@@ -13,7 +13,7 @@ Prevent clients from sharing your router's internet connection with other device
 ## Prerequisites
 
 - ✅ MikroTik RouterOS device with firewall mangle support
-- ✅ Access to RouterOS console (SSH, WebFig, or WinBox)
+- ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Outgoing internet connection
 - ✅ Clients connecting via WiFi or Ethernet (DHCP or static)
 
@@ -32,7 +32,7 @@ Test in a controlled environment before production deployment.
 
 ### Option A: Terminal Configuration
 
-1. **Access the terminal** via SSH, console, or WebFig terminal
+1. **Access the terminal** via SSH, console, or Winbox terminal
 
    ```bash
    ssh admin@your-router-ip
@@ -63,7 +63,7 @@ Test in a controlled environment before production deployment.
 
    You should see the new rule with `action=change-ttl`.
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Navigate to IP > Firewall > Mangle:**
    - Click the **+** button to add a new mangle rule

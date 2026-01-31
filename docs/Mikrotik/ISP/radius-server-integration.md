@@ -151,7 +151,7 @@ Set up MikroTik as a RADIUS server to centralize authentication and billing for 
     /radius print
     ```
 
-### Option B: WebFig Configuration
+### Option B: Winbox Configuration
 
 1. **Create User Groups:**
    - Navigate to System > User Manager > User Groups
