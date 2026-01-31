@@ -1,0 +1,8 @@
+{
+  "label": "🌐 ISP & AAA",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "PPPoE, RADIUS, OLT, and ISP infrastructure."
+  }
+}

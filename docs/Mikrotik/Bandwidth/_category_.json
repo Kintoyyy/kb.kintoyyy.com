@@ -1,0 +1,8 @@
+{
+  "label": "🚀 Bandwidth & QoS",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Bandwidth management, queues, and guest control."
+  }
+}

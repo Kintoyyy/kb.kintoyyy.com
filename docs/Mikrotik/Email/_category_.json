@@ -1,0 +1,8 @@
+{
+  "label": "📧 Email & Logs",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Backups and log delivery via email."
+  }
+}

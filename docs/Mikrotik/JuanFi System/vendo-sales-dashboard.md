@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 📊 Vendo Sales Dashboard Report
+# 📊 Vendo Sales Terminal Report
 
 
 Generate a centralized sales dashboard report from all JuanFi vending machines, displaying real-time metrics including total sales, current balance, daily/monthly revenue in a formatted system note. Pulls data via API from multiple vendos, processes timestamps in 12-hour format, and compiles everything into a single readable report updated hourly or on-demand.

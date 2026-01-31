@@ -1,0 +1,8 @@
+{
+  "label": "🔒 Security & Firewall",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Firewall hardening, DNS enforcement, and device isolation."
+  }
+}

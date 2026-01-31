@@ -1,0 +1,8 @@
+{
+  "label": "🔊 Monitoring & Alerts",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Uptime checks, alerts, and latency monitoring."
+  }
+}
