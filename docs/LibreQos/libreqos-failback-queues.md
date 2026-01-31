@@ -172,10 +172,10 @@ These scripts modify queues automatically. Test on a small subset of users befor
 
 ## Related Guides
 
-- [LibreQoS Setup](../../LibreQos/libreqos-installation)
-- [MikroTik PPP/Hotspot Sync](../../LibreQos/mikrotik-ppp-hotspot-sync)
-- [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
-- [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
+- [LibreQoS Setup](./libreqos-installation)
+- [MikroTik PPP/Hotspot Sync](./mikrotik-ppp-hotspot-sync)
+- [Guest Bandwidth Control](../Mikrotik/Bandwidth/guest-bandwidth-dhcp-on-up)
+- [NetWatch Telegram Alerts](../Mikrotik/Monitoring/netwatch-telegram-alerts)
 
 ## Completion
 
