@@ -1,0 +1,9 @@
+{
+  "label": "Network Fundamentals",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Essential networking concepts, subnetting, and IP addressing guides.",
+    "slug": "/category/network-fundamentals"
+  }
+}

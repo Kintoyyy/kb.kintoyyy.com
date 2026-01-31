@@ -1,305 +1,291 @@
 # Copilot Instructions for kb.kintoyyy.com
 
-## Project Overview
+## Quick Start
 
-This is a **Docusaurus v3.9.2** documentation site hosting practical knowledge about Proxmox, MikroTik, Networking, and JuanFi vending systems. The site is focused on real-world setups with clear, repeatable procedures.
-
-**Key Details:**
-- **Language:** JavaScript/JSX with Markdown content
-- **Runtime:** Node.js ≥20.0
-- **Package Manager:** npm/yarn
-- **Deployment:** GitHub Pages with automatic builds
-- **URL:** https://kb.kintoyyy.com
-
-**Content Inventory:**
-- **17 MikroTik Guides** - Routing, firewall, RADIUS, monitoring
-- **8 JuanFi System Guides** - Vending automation
-- **2 Proxmox Guides** - Virtualization, post-install
+**Tech Stack:** Docusaurus 3.9.2, React 19, Node.js ≥20, npm/yarn  
+**URL:** https://kb.kintoyyy.com  
+**Core Commands:**
+```bash
+yarn start   # Dev server with hot-reload (http://localhost:3000)
+yarn build   # Production build → /build directory (strict link checking)
+yarn deploy  # Build + push to GitHub Pages
+```
 
 ---
 
-## Architecture & Key Directories
+## Architecture Overview
+
+This is a **Docusaurus static site** hosting 25+ infrastructure guides organized by topic:
 
 ```
-project/
-├── docs/                  # Main documentation (auto-indexed by Docusaurus)
-│   ├── intro.md          # Home page
-│   ├── Proxmox/          # Proxmox virtualization guides
-│   ├── Mikrotik/         # MikroTik topic collection (17 guides)
-│   │   └── JuanFi System/  # Vending automation subcategory (8 guides)
-│   └── tutorial-basics/  # Default Docusaurus example (can be removed)
-├── blog/                 # Blog posts (separate from docs, RSS enabled)
-├── src/
-│   ├── pages/            # Custom pages (index.js for homepage)
-│   └── css/              # Global styles (custom.css)
-├── static/               # Static assets (favicons, images)
-└── docusaurus.config.js  # Main Docusaurus configuration (v4 compat mode enabled)
+docs/
+├── intro.md                          # Homepage
+├── Mikrotik/                         # 17+ guides organized in subcategories
+│   ├── Routing/       (_category_.json with slug: /category/routing-pbr)
+│   ├── Security/      (_category_.json with slug: /category/security-firewall)
+│   ├── ISP/           (_category_.json with slug: /category/isp-infrastructure)
+│   ├── Monitoring/    (_category_.json with slug: /category/monitoring-alerts)
+│   ├── Email/         (_category_.json with slug: /category/email-logs)
+│   ├── Container/
+│   ├── Bandwidth/     (_category_.json with slug: /category/bandwidth-qos)
+│   ├── JuanFi System/ (8 guides: vending automation subcategory)
+│   └── _category_.json
+├── Proxmox/                         # 4 infrastructure guides (VE virtualization)
+│   ├── pci-passthrough-setup.md
+│   ├── pcie-passthrough-fix.md
+│   ├── efi-boot-fix.md
+│   ├── windows-11-vm.md
+│   └── _category_.json
+└── tutorial-basics/                 # Default Docusaurus template (safe to ignore)
 ```
 
-**Important:** Documentation files use **front matter YAML** for metadata:
-```yaml
+**Key Insight:** Each subcategory folder REQUIRES a `_category_.json` with explicit `"slug"` property to prevent Docusaurus chunk loading errors (e.g., "ChunkLoadError: Loading chunk ... failed").
+
 ---
-sidebar_position: 1          # Controls doc order in category
----
-```
 
-For categories, create `_category_.json` with:
+## Critical Developer Workflows
+
+### Local Development (Fastest Iteration)
+```bash
+yarn start
+```
+- Hot-reloads on `.md` changes instantly (no restart needed)
+- JS/config changes require manual restart
+- Links auto-validate in dev mode
+- Navigate to verify sidebar + cross-references work
+
+### Build & Validation (Pre-Deployment)
+```bash
+yarn build
+```
+- **Must pass before deployment.** Strict mode: `onBrokenLinks: 'throw'` kills build if any link is broken
+- Validates ALL markdown links (catches relative path errors, missing files, .md extensions in links)
+- Generates optimized static site to `/build`
+- Check for warnings: webpack cache strategy is cosmetic (safe to ignore)
+
+### Category Structure & Routing
+**Every subcategory folder MUST have `_category_.json`** with this pattern:
 ```json
 {
-  "label": "Category Name",
-  "position": 2,
+  "label": "🌐 Routing & PBR",      // Emoji prefix + category name
+  "position": 2,                     // Affects sidebar order (1-8)
   "link": {
     "type": "generated-index",
-    "description": "Auto-generates index page from category docs"
+    "description": "Policy-based routing and traffic steering guides.",
+    "slug": "/category/routing-pbr"  // CRITICAL: Prevents chunk load errors
   }
 }
 ```
 
 ---
 
-## Essential Workflows
-
-### Local Development
-```bash
-yarn start        # Hot-reload dev server (http://localhost:3000)
-```
-- Changes to `.md` files reflect **instantly** without restart
-- Changes to JS config files **require restart**
-- Sidebar navigation auto-updates from file structure
-
-### Building & Deployment
-```bash
-yarn build        # Generate static site to /build directory
-yarn deploy       # Build + push to gh-pages branch (GitHub Pages)
-```
-
-**Build Check:** Always run `yarn build` before pushing—it catches broken markdown links and config errors (see `onBrokenLinks: 'throw'` in docusaurus.config.js).
-
----
-
 ## Documentation Conventions
 
-### 1. **Markdown Formatting (Applied in Recent Updates)**
-- **Images:** Use Markdown syntax `![alt text](./img/filename.png)` NOT HTML
-- **Callouts:** Use Docusaurus admonitions:
-  ```markdown
-  :::info
-  Informational content
-  :::
-  
-  :::warning
-  Important warnings
-  :::
-  
-  :::tip
-  Helpful tips
-  :::
-  ```
-- **Tables:** Standard Markdown tables for config/troubleshooting
-- **Code blocks:** Always specify language (bash, javascript, json, etc.)
+### File Organization
+- **Filenames:** lowercase, hyphens: `block-tethering-ttl.md` NOT `BlockTethering.md`
+- **Images:** Store in `category/img/` subfolder, reference as `./img/filename.png`
+- **Sidebar order:** Front matter `sidebar_position: 1` (controls doc order in category)
 
-### 2. **Document Structure Pattern (Strict Template)**
-All technical gui** (NO "## Overview" section - start directly with content)
-2. **Introductory paragraph** (2-3 sentences: What problem? What's the benefit?)
-3. **Info Box** - Key bullet points about functionality
-4. **Prerequisites** - Checklist of requirements (✅ style)
-5. **Prerequisites** - Checklist of requirements (✅ style)
-4. **Warning Box** - Specific considerations/caveats
-5. **Configuration Steps** - Option A (Terminal) and Option B (Winbox)
-6. **Understanding the Configuration** - Flow diagram + Components table
-7. **Verification** - Step-by-step tests with specific commands
-8. **Troubleshooting** - Issue/Cause/Solution table (10-12+ rows minimum)
-9. **Advanced Options** - 8-12 variations/extensions (separate code blocks)
-10. **Related Guides** - Links to related documentation
-11. **Completion** - Emoji celebration + next steps
+### Markdown Link Format (CRITICAL)
+```markdown
+❌ WRONG:  [Link](./file.md)         # .md extension breaks build
+❌ WRONG:  [Link](../../docs/...)    # Unnecessary depth
 
-**Example files:** `docs/Mikrotik/cloud-ddns-routing.md`, `docs/Mikrotik/speedtest-traffic-routing.md`, `docs/Mikrotik/JuanFi System/*.md`
-
-### 3. **Title Format Requirements**
-- Keep titles SHORT: 2-4 words maximum
-- Include emoji prefix matching topic category:
-  - 📧 Email/Logging (email-backup, send-logs-to-email)
-  - 🔒 Security/Firewall (enforce-dns-8.8.8.8, block-tethering-ttl)
-  - 💡 Control/Automation (payment-reminder-popup, vendo-nightlight-control)
-  - 🌐 Networking/Routing (cloud-ddns-routing, vpn-game-routing)
-  - 🚀 Performance/Optimization (speedtest-traffic-routing, guest-bandwidth-dhcp-on-up)
-  - 🔊 Monitoring/Alerts (netwatch-telegram-alerts, beeper-alert-internet-down)
-
-### 3. **Linking Between Docs**
-```markdown)    # Same directory navigation (NO .md extension)
-[Link text](../parent/file)              # Parent directory (NO .md extension)
-[Link text](../../docs/Mikrotik/file)    # Absolute from project root (NO .md extension)
+✅ CORRECT: [Link](./file)            # Same directory (no extension)
+✅ CORRECT: [Link](../Routing/file)   # Cross-category navigation (no extension)
+✅ CORRECT: [Link](../../Proxmox/file) # From other top-level category
 ```
-**CRITICAL:** Never include `.md` extensions in links. ```
-Docusaurus auto-generates valid URLs at build time.
+**Why:** Docusaurus auto-generates URLs at build time. Links with `.md` extensions cause "broken link" errors.
 
-### 4. **Blog Post Front Matter**
-```yaml
----
-title: Post Title
-authors: [author-key]        # References authors.yml
-tags: [tag1, tag2]           # For blog categorization
----
+### Document Structure Template
+Every technical guide follows this 11-section pattern (see `docs/Mikrotik/Routing/ospf-ptp.md` as example):
+
+1. **Title + Emoji:** `# 🌐 OSPF Point-to-Point`
+2. **Intro paragraph** (2-3 sentences: problem + benefit)
+3. **Info box** (key bullet points)
+4. **Prerequisites** (✅ checklist)
+5. **Warning box** (caveats/considerations)
+6. **Configuration** (Option A: Terminal, Option B: Winbox)
+7. **Understanding** (flow diagram + components table)
+8. **Verification** (step-by-step tests with commands)
+9. **Troubleshooting** (10-12+ row table: Issue/Cause/Solution)
+10. **Advanced options** (8-12+ practical variations, each with code block)
+11. **Related guides** + **completion emoji**
+
+### Code Blocks & Syntax Highlighting
+```markdown
+# RouterOS scripting (use "routeros" language tag)
+    ```routeros
+    /ip firewall filter add action=drop chain=forward
+    ```
+
+# Terminal commands (use "bash")
+    ```bash
+    ssh root@10.0.0.1 "ping 8.8.8.8"
+    ```
+
+# Config files (use "json", "yaml", etc.)
+    ```json
+    { "config": "value" }
+    ```
 ```
-See `blog/authors.yml` and `blog/tags.yml` for available values.
 
-### 5. **MikroTik Scripting Patterns**
-MikroTik guides use RouterOS scripting syntax. Key conventions:
-- **Terminal code blocks** use `routeros` language tag for syntax highlighting
-- **Variables** use MikroTik syntax: `:local varname` (not bash `$variable`)
-- **Always provide BOTH terminal AND Winbox approaches** (never GUI-only)
-- **Terminal examples** include realistic IP addresses/gateway names that MUST be replaced
-- **Winbox steps** describe exact navigation path with field values
+### Callouts (Docusaurus Admonitions)
+```markdown
+:::info
+Informational content
+:::
 
----
+:::warning
+Important warnings or gotchas
+:::
 
-## Content Requirements & Checks
-
-### When Adding Documentation:
-1. **Use descriptive filenames:** `feature-name.md` (lowercase, hyphens)
-2. **Add sidebar_position** in front matter to control ordering
-3. **Create _category_.json** for new category folders
-4. **Test links locally:** `yarn start` then click through content
-5. **Validate build:** `yarn build` must complete without errors
-6. **Add images to `img/` subfolder** within topic directory
-
-### Before Committing:
-```bash
-yarn build  # Catches broken links, config errors
-git add .
-git commit -m "docs: descriptive message"
-git push
+:::tip
+Helpful tips or shortcuts
+:::
 ```
 
 ---
 
-## Docusaurus-Specific Patterns
+## Build System & Deployment
 
-### Auto-Generated Navigation
-- **Sidebar:** Built from `docs/` folder structure + `_category_.json` files
-- **Breadcrumbs:** Auto-generated from file path hierarchy
-- **Next/Previous buttons:** Automatically linked based on `sidebar_position`
-- **Search:** Full-text search works on all `.md` content (built-in)
+### Build Pipeline
+1. **`yarn build`** runs Docusaurus webpack bundler
+2. Validates all links with `onBrokenLinks: 'throw'`
+3. Generates static HTML/JS/CSS to `/build`
+4. GitHub Actions auto-deploys to GitHub Pages on `main` branch push
 
-### Key Config (docusaurus.config.js)
-- `onBrokenLinks: 'throw'` - Build fails if links are broken (strict checking)
-- `v4: true` flag in future config - Prepares for Docusaurus v4 upgrade
-- GitHub edit links automatically generated to `tree/main/` branch
-- Site title: "Knowledge Base - Kintoyyy"
+### Common Build Errors & Fixes
 
-### MDX Support
-- Markdown files support JSX (can embed React components if needed)
-- Keep JSX minimal—prefer standard Markdown + admonitions for consistency
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `onBrokenMarkdownLink: Source ...` | Broken internal link | Update link in markdown (no .md extension) |
+| `ChunkLoadError: Loading chunk ... failed` | Missing `_category_.json` or slug | Add `_category_.json` with explicit slug to category folder |
+| `Link cannot reference other documents` | Invalid relative path | Use correct relative path (e.g., `../Routing/file` not `../../docs/`) |
 
 ---
 
-## Example Patterns from Codebase
+## MikroTik-Specific Patterns
 
-### Document Front Matter
-```yaml
----
-sidebar_position: 1
----
-
-# Document Title
+### RouterOS Code Blocks
+Always use **`routeros` language tag** (not generic `bash`):
+```routeros
+:local ipaddr "192.168.1.1"
+/ip firewall nat add chain=srcnat src-address=$ipaddr action=masquerade
 ```
 
-### Technical Guide Structure
-See `docs/Mikrotik/cloud-ddns-routing.md` for complete pattern:
-- Overview section with emoji + 2-3 sentence summary
-- Info box with key bullet points
-- Prerequisites checklist with ✅ style
-- Warning box for caveats
-- Option A (Terminal) / Option B (Winbox) configuration
-- Understanding section with flow diagram + components table
-- Verification steps with specific RouterOS commands
-- Troubleshooting table (minimum 10-12 rows)
-- Advanced options (8-12+ variations, each with code block)
-- Related guides linking to related docs
-- Completion confirmation with emoji
+### Dual Configuration Approach
+**Every technical guide MUST provide both:**
+1. **Terminal/CLI** - Paste-able script with real IP examples (e.g., `192.168.1.1` - users MUST replace)
+2. **Winbox GUI** - Step-by-step navigation path with field values
 
-### Sidebar Posi7 guides + Welcome (sidebar_position 1-17)
-1. Welcome (1), Email Backup (2), Send Logs (3), Enforce DNS (4)
-2. Block Tethering (5), Starlink Firewall (6), Block ChromeCast (7)
-3. Guest Bandwidth (8), NetWatch Telegram (9), Payment Popup (10)
-4. Beeper Alert (11), Connect OLT (12), VPN Game Routing (13)
-5. Cloud DDNS (14), Speedtest Routing (15), RADIUS Server (16), Access Concentrator (17)
+Example:
+```markdown
+### Option A: Terminal
+[Terminal commands here]
 
-When adding new guides, increment sidebar_position to maintain order.
-
-### Proxmox Guides
-Path: `docs/Proxmox/`
-Current count: 2 guides
-- Post-Install Configuration (1)
-- Install MikroTik CHR (2)
-When adding new guides, increment sidebar_position to maintain order.
-
-### JuanFi System Guides
-Path: `docs/Mikrotik/JuanFi System/`
-Current count: 4 core guides + 4 pre-existing (sidebar_position 1-8)
-- Core: Vendo Nightlight (1), Vendo Restart (2), Sales Dashboard (3), Cleanup Expired (4)
-- Pre-existing: Address List (5), Fix 1970 Bug (6), Auto Binding (7), Sales Reset (8)
-
-### Category Metadata
-See `docs/Mikrotik/_category_.json` and `docs/Mikrotik/JuanFi System/_category_.json`:
-```json
-{
-  "label": "Category Name",
-  "position": 2,
-  "link": { "type": "generated-index", "description": "Category overview text" }
-}
+### Option B: Winbox
+[GUI navigation: Menu → Submenu → Field = Value]
 ```
 
 ---
 
-## Common Tasks
+## Cross-Category Linking Best Practices
 
-### Add New Documentation Topic
-1. Create folder: `docs/TopicName/`
-2. Create `_category_.json` with label + position
-3. Add `.md` files with `sidebar_position` front matter
-4. Add images to `TopicName/img/`
-5. Test: `yarn start` → navigate to verify
-6. Build: `yarn build` → ensure no broken links
+When linking between MikroTik subcategories or to Proxmox:
 
-### Update Existing Documentation
-- Keep Markdown formatting consistent (images, callouts, tables)
-- Maintain document structure pattern for technical guides
-- Test locally: changes should appear instantly
-- Run `yarn build` to catch any link breakage
+```markdown
+# From Security/ guide to Routing/ guide
+[OSPF configuration](../Routing/ospf-ptp)
 
-### Deploy Changes
-- All changes to `main` branch auto-deploy to GitHub Pages
-- DeNo "## Overview" headers:** Start directly with intro paragraph after title (new convention)
-- **No .md extensions in links:** Use `[text](./file)` not `[text](./file.md)` (new convention)
-- **ploy script uses `GIT_USER` env var (see README.md)
-- Built site appears in `build/` directory
+# From ISP/ guide to Bandwidth/ guide
+[Guest bandwidth setup](../Bandwidth/guest-bandwidth-dhcp-on-up)
+
+# From MikroTik to Proxmox
+[Windows 11 VM setup](../../Proxmox/windows-11-vm)
+
+# From JuanFi System/ to parent Mikrotik guides
+[LibreQoS setup](../../Mikrotik/libreqos-installation)
+```
 
 ---
 
-## Important Notes for AI Agents
+## Frontend Customization
 
-- **Auto-generation is key:** Docusaurus auto-indexes docs and generates sidebars—avoid manual sidebar.js edits (currently using autogenerated mode)
-- **Strict link checking:** Build will fail if any Markdown link is broken
-- **Hot reload works:** Always use `yarn start` for iterative content development
-- **Image paths are relative:** Images in `docs/Mikrotik/JuanFi System/img/` referenced as `./img/filename.png`
-- **Front matter matters:** Missing `sidebar_position` can cause doc ordering issues
-- **Category descriptions auto-generate index pages**—no need to manually create index.md files
-- **RouterOS code blocks:** MUST use `routeros` language tag, not generic `bash` or `shell`
-- **Dual configuration:** Every technical guide requires both terminal AND Winbox approaches—never GUI-only or terminal-only
-- **Cross-references:** Link related guides at the end of each guide for discoverability
-- **Troubleshooting depth:** Minimum 10-12 rows in troubleshooting tables covering edge cases and common issues
-- **Advanced options:** Provide 8-12+ practical variations/extensions beyond basic configuration
+### Homepage (`src/pages/index.js`)
+- React component with donate modal triggered by `#support` hash
+- QR image placeholder at `/static/img/donate-qr.png` (user uploads image)
+- Support button in navbar links to modal
+
+### Styling (`src/css/custom.css`, `src/pages/index.module.css`)
+- CSS modules for component-scoped styles
+- Custom Docusaurus theme overrides in `custom.css`
+- Donate modal: `.donateModal`, `.donateOverlay`, `.donateQr` classes
 
 ---
 
-## Technology Stack Summary
+## New Guide Checklist
 
-| Component | Version | Notes |
-|-----------|---------|-------|
-| Docusaurus | 3.9.2 | Modern, v4-compatible |
-| React | 19.0.0 | Minimal usage in this project |
-| Node.js | ≥20.0 | Required runtime |
-| Prism | 2.3.0 | Syntax highlighting |
-| MDX | 3.0.0 | Markdown + JSX support |
+When adding a new guide:
+
+- [ ] Create file: `docs/Category/feature-name.md`
+- [ ] Add front matter: `---\nsidebar_position: N\n---`
+- [ ] Follow 11-section structure (intro, prerequisites, config, verify, troubleshoot, advanced)
+- [ ] Use emoji in title matching category (`🌐` Routing, `🔒` Security, `💡` Control, etc.)
+- [ ] Test locally: `yarn start` → verify sidebar + links
+- [ ] Check build: `yarn build` → must pass with no broken link errors
+- [ ] All MikroTik configs: both Terminal AND Winbox options
+- [ ] Cross-reference related guides at end of document
+
+---
+
+## Key Files Reference
+
+| File | Purpose | When to Edit |
+|------|---------|--------------|
+| `docusaurus.config.js` | Site config, navbar, plugins | URL, title, deployment settings |
+| `sidebars.js` | Sidebar navigation (auto-generated) | Don't edit—use `_category_.json` + file structure |
+| `docs/*/\_category_.json` | Category metadata + slug | Adding new subcategory or fixing routes |
+| `src/pages/index.js` | Homepage + donate modal | Donate feature, hero banner |
+| `src/css/custom.css` | Global theme overrides | Dark/light mode, navbar styling |
+| `package.json` | Dependencies + scripts | Adding npm packages (rarely needed) |
+
+---
+
+## Troubleshooting AI Development
+
+**Issue: Links break after adding new guide**
+- Ensure all cross-references use relative paths WITHOUT `.md` extension
+- Run `yarn build` to validate
+
+**Issue: New category doesn't appear in sidebar**
+- Add `_category_.json` to folder with `label`, `position`, and `slug` properties
+- Restart dev server (`yarn start`)
+
+**Issue: Documentation won't deploy**
+- Check build: `yarn build` must complete without errors
+- Verify `onBrokenLinks: 'throw'` passes
+- All markdown links must be valid relative paths
+
+---
+
+## Technology Dependencies
+
+| Tech | Version | Role |
+|------|---------|------|
+| Docusaurus | 3.9.2 | Static site generation, nav, search |
+| React | 19.0.0 | Homepage + interactive components |
+| Prism | 2.3.0 | Syntax highlighting for code blocks |
+| MDX | 3.0.0 | Markdown + JSX support (used minimally) |
+| Node.js | ≥20.0 | Runtime for build scripts |
+
+---
+
+## Recent Codebase Updates (As of Feb 2026)
+
+✅ **New MikroTik Subcategories:** Routing, Security, ISP, Monitoring, Email, Container, Bandwidth  
+✅ **New Guides:** OSPF PTP, BFD failover, Windows 11 VM, PCIe RMRR fix, EFI boot fix  
+✅ **Build Improvements:** All category slugs now explicit to prevent chunk loading  
+✅ **Homepage Enhancement:** Donate modal with QR support button in navbar  
+✅ **Validation:** Build system passes with zero broken links
 
