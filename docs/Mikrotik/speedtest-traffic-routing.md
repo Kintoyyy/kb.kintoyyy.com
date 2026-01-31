@@ -2,7 +2,7 @@
 sidebar_position: 15
 ---
 
-# 🚀 Speedtest Traffic Routing
+# 🚀 Speedtest PBR
 
 Detect speedtest traffic in real-time and route it through a dedicated gateway using policy-based routing (PBR). Speedtest detection identifies large, sustained transfers (800KB+, 2-500Mbps connection rate) on TCP port 443 to external addresses. Routes these packets through a separate `to-speedtest` routing table, preventing speedtest from saturating primary WAN or mixing with other high-bandwidth traffic. Useful for multi-WAN setups, separating speedtest from production traffic, or testing alternate ISP connections.
 

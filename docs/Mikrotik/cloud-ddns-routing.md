@@ -2,7 +2,7 @@
 sidebar_position: 14
 ---
 
-# ☁️ Cloud DDNS Routing
+# ☁️ Cloud DDNS PBR
 
 
 Route MikroTik cloud DDNS updates through a specific gateway to ensure reliable connectivity to Mikrotik's cloud infrastructure. This setup creates a dedicated routing path for cloud synchronization, bypassing congested or filtered routes. Useful for enterprise deployments, multi-gateway setups, or environments where cloud connectivity is critical for remote management.

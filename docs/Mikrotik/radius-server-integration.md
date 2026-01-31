@@ -2,7 +2,7 @@
 sidebar_position: 16
 ---
 
-# 🔐 RADIUS Server Integration
+# 🔐 Userman (Radius)
 
 ## Overview
 

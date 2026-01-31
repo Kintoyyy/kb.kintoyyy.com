@@ -2,7 +2,7 @@
 sidebar_position: 17
 ---
 
-# 🌐 Access Concentrator (AC) Setup
+# 🌐 Access Concentrator (AC)
 
 ## Overview
 

@@ -2,7 +2,7 @@
 sidebar_position: 13
 ---
 
-# 🎮 VPN Game Routing
+# 🎮 Game VPN PBR
 
 
 Route gaming traffic through a VPN tunnel while keeping regular internet on direct connection. This guide uses policy-based routing with firewall rules to detect game server traffic (Mobile Legends, DOTA, COD, etc.) and automatically tunnel it through a VPN, reducing latency and bypassing regional restrictions. Perfect for gaming hotspots, reducing WAN congestion, or accessing geo-blocked game servers.
