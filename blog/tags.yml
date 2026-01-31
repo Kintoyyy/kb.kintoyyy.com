@@ -1,19 +1,19 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+mikrotik:
+  label: MikroTik
+  permalink: /mikrotik
+  description: Mikrotik RouterOS related posts
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+proxmox:
+  label: Proxmox
+  permalink: /proxmox
+  description: Proxmox VE related posts
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+vm:
+  label: Virtual Machines
+  permalink: /vm
+  description: Virtual Machines related posts
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+docker:
+  label: Docker
+  permalink: /docker
+  description: Docker related posts

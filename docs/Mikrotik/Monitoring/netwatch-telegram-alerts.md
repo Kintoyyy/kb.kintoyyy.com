@@ -313,9 +313,9 @@ https://api.telegram.org/bot123456789:ABCDefGHIJKlmNOpqrsTUvwxYZ/sendMessage?cha
 
 ## Related Configurations
 
-- **Email alerts:** See [Email Backup](./email-backup.md) for similar alert patterns
-- **Logs to email:** See [Send Logs to Email](./send-logs-to-email.md) for SMTP integration
-- **Bandwidth monitoring:** See [Guest Bandwidth Control](./guest-bandwidth-dhcp-on-up.md) for other on-event scripts
+- **Email alerts:** See [Email Backup](../Email/email-backup) for similar alert patterns
+- **Logs to email:** See [Send Logs to Email](../Email/send-logs-to-email) for SMTP integration
+- **Bandwidth monitoring:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up) for other on-event scripts
 - **Telegram Bot best practices:** Store tokens in `/system script environment` for security
 
 ## Completion

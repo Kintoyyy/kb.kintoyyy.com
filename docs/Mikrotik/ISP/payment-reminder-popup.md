@@ -101,7 +101,7 @@ Display a payment reminder popup/image to users whose service has expired, while
     ```routeros
     /ip proxy access add dst-port=8082 src-address=10.200.0.0/24
     
-    /ip proxy access add action=redirect action-data="iili.io/fLtjFkJ.md.png" \
+    /ip proxy access add action=redirect action-data="iili.io/fLtjFkJ.png" \
         dst-port=80,443 dst-address=!10.255.255.2 dst-host=!iili.io \
         src-address=10.200.0.0/24
     
@@ -109,7 +109,7 @@ Display a payment reminder popup/image to users whose service has expired, while
     ```
 
     :::tip
-    Replace `iili.io/fLtjFkJ.md.png` with your actual payment reminder image URL.
+    Replace `iili.io/fLtjFkJ.png` with your actual payment reminder image URL.
     :::
 
 ### Option B: Winbox Configuration
@@ -199,7 +199,7 @@ Display a payment reminder popup/image to users whose service has expired, while
    - Dst. Host: `!iili.io`
    - Src. Address: `10.200.0.0/24`
    - Action: `redirect`
-   - Action Data: `iili.io/fLtjFkJ.md.png`
+   - Action Data: `iili.io/fLtjFkJ.png`
    - Click **OK**
    
    **Rule 3 (Deny all other):**
@@ -302,7 +302,7 @@ rate-limit=128k/128k
 | HTTPS traffic not redirected | HTTP/HTTPS port mismatch | Verify rule includes both `port=80,443`; HTTPS redirection may need special handling |
 | Users can bypass popup | Firewall rule not in place | Verify filter rule on `forward` chain with `action=drop` |
 | Proxy access denied | Src address not in allowed list | Check proxy access rule for 10.200.0.0/24; add if missing |
-| Payment image won't load | Image hosting down or URL wrong | Test URL directly: `https://iili.io/fLtjFkJ.md.png`; verify URL is accessible |
+| Payment image won't load | Image hosting down or URL wrong | Test URL directly: `https://iili.io/fLtjFkJ.png`; verify URL is accessible |
 | Redirect loops/infinite redirects | Proxy rules ordering wrong | Ensure allow rule comes before redirect rule in proxy access list |
 
 ## Advanced Options
@@ -372,7 +372,7 @@ Use `on-down` script on active PPP profile to assign expired profile.
 ```
 
 ### Email notification when user reaches expired state:
-See [Email Backup](./email-backup.md) and [Send Logs to Email](./send-logs-to-email.md) for SMTP setup.
+See [Email Backup](./email-backup) and [Send Logs to Email](./send-logs-to-email) for SMTP setup.
 
 ## Security Considerations
 
@@ -405,10 +405,10 @@ See [Email Backup](./email-backup.md) and [Send Logs to Email](./send-logs-to-em
 
 ## Related Configurations
 
-- **Email alerts:** See [Send Logs to Email](./send-logs-to-email.md)
-- **DHCP scripting:** See [Guest Bandwidth Control](./guest-bandwidth-dhcp-on-up.md)
-- **Firewall rules:** See [Starlink Firewall Rules](./starlink-firewall-rules.md)
-- **Address lists:** See [Block Hotspot Users](./block-hotspot-chromecast-access.md)
+- **Email alerts:** See [Send Logs to Email](../Email/send-logs-to-email)
+- **DHCP scripting:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
+- **Firewall rules:** See [Starlink Firewall Rules](../Security/starlink-firewall-rules)
+- **Address lists:** See [Block Hotspot Users](../Security/block-hotspot-chromecast-access)
 
 ## Completion
 

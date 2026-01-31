@@ -239,10 +239,10 @@ Then check: `/log print where topics~"forward"`
 
 ## Related Configurations
 
-- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8.md)
-- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl.md)
-- **Advanced filtering:** Layer 7 protocol matching, connection tracking
-- **Bandwidth management:** `/queue tree` rules for per-IP limits
+- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8)
+- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl)
+- **ChromeCast isolation:** See [Block Hotspot ChromeCast Access](./block-hotspot-chromecast-access)
+- **Bandwidth management:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
 
 ## Completion
 

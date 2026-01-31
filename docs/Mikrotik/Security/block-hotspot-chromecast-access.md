@@ -243,13 +243,22 @@ Then check: `/log print where topics~"forward"`
 
 ## Related Configurations
 
-- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8.md)
-- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl.md)
-- **Starlink firewall:** See [Starlink Firewall Rules](./starlink-firewall-rules.md)
-- **Address lists:** See [Starlink Firewall Rules - Address Lists](./starlink-firewall-rules.md#understanding-the-configuration)
+- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8)
+- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl)
+- **Starlink firewall:** See [Starlink Firewall Rules](./starlink-firewall-rules)
+- **Address lists:** See [Starlink Firewall Rules - Address Lists](./starlink-firewall-rules#understanding-the-configuration)
 - **Bandwidth limiting:** Use `/queue tree` to limit hotspot speeds
 
+## Related Configurations
+
+- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8)
+- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl)
+- **Firewall hardening:** See [Starlink Firewall Rules](./starlink-firewall-rules)
+- **Bandwidth control:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
+
 ## Completion
+
+✅ **ChromeCast guests are now blocked!**
 
 ✅ **ChromeCast is now isolated from hotspot users!**
 

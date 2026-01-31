@@ -347,9 +347,9 @@ Router will use ISP1 normally, but if ISP1 fails, traffic automatically switches
 
 ## Related Guides
 
-- [Enforce DNS](./enforce-dns-8.8.8.8.md)
-- [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md)
-- [VPN Game Routing](./vpn-game-routing.md)
+- [Enforce DNS](../Security/enforce-dns-8.8.8.8)
+- [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
+- [VPN Game Routing](./vpn-game-routing)
 
 ## Completion
 

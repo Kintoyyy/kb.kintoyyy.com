@@ -345,15 +345,15 @@ srcnat chain (Source NAT):
 This guide covers basic AUX connection. For full OLT setup, see complementary guides:
 - **VLAN configuration** for subscriber lines
 - **QoS policies** for service prioritization
-- **Monitoring dashboards** with [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md)
+- **Monitoring dashboards** with [NetWatch Telegram Alerts](./netwatch-telegram-alerts)
 - **Backup/failover** scenarios
 
 ## Related Configurations
 
-- **NetWatch monitoring:** See [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md)
-- **Firewall rules:** See [Starlink Firewall Rules](./starlink-firewall-rules.md)
-- **VLAN management:** Consult MikroTik VLAN documentation
-- **QoS setup:** See [Guest Bandwidth Control](./guest-bandwidth-dhcp-on-up.md) for queue concepts
+- **NetWatch monitoring:** See [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
+- **Firewall rules:** See [Starlink Firewall Rules](../Security/starlink-firewall-rules)
+- **VLAN management:** See [PPPoE QinQ Multi-OLT](./pppoe-qinq-multi-olt)
+- **QoS setup:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
 
 ## Completion
 
@@ -363,7 +363,7 @@ This guide covers basic AUX connection. For full OLT setup, see complementary gu
 - Test connectivity: `ping 192.168.8.1`
 - Log into OLT management interface
 - Configure OLT subscriber line provisioning
-- Set up monitoring alerts (see [NetWatch Telegram](./netwatch-telegram-alerts.md))
+- Set up monitoring alerts (see [NetWatch Telegram](./netwatch-telegram-alerts))
 - Document IP addressing scheme for team
 - Back up configuration: `/system backup save`
 - Schedule failover testing quarterly

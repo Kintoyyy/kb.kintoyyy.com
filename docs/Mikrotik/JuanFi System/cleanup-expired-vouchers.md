@@ -328,9 +328,9 @@ Automatically identify and remove expired hotspot voucher users that no longer h
 
 ## Related Guides
 
-- [Vendo Nightlight Control](./vendo-nightlight-control.md)
-- [Vendo System Restart](./vendo-restart-system.md)
-- [Vendo Sales Dashboard](./vendo-sales-dashboard.md)
+- [Vendo Nightlight Control](./vendo-nightlight-control)
+- [Vendo System Restart](./vendo-restart-system)
+- [Vendo Sales Dashboard](./vendo-sales-dashboard)
 
 ## Completion
 

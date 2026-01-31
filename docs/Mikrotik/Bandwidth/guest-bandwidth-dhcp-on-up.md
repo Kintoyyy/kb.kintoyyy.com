@@ -305,10 +305,10 @@ global-in (100%)
 
 ## Related Configurations
 
-- **Tethering block:** See [Block Tethering by TTL](./block-tethering-ttl.md)
-- **ChromeCast isolation:** See [Block Hotspot Users from Accessing ChromeCast](./block-hotspot-chromecast-access.md)
-- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8.md)
-- **Queue trees:** Advanced HTB (Hierarchical Token Bucket) queuing for large networks
+- **Tethering block:** See [Block Tethering by TTL](../Security/block-tethering-ttl)
+- **ChromeCast isolation:** See [Block Hotspot Users from Accessing ChromeCast](../Security/block-hotspot-chromecast-access)
+- **DNS enforcement:** See [Enforce DNS to Google](../Security/enforce-dns-8.8.8.8)
+- **Firewall rules:** See [Starlink Firewall Rules](../Security/starlink-firewall-rules)
 
 ## Completion
 

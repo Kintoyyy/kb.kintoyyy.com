@@ -323,7 +323,7 @@ But with processing: ~8-10 seconds actual
 
 ### Alert with email notification
 
-Combine with [Send Logs to Email](./send-logs-to-email.md):
+Combine with [Send Logs to Email](./send-logs-to-email):
 
 ```routeros
 :log error "> INTERNET DOWN - Triggering alerts";
@@ -386,13 +386,13 @@ Combine with [Send Logs to Email](./send-logs-to-email.md):
 - **Server room:** Mount on front rack panel for audibility
 - **Office:** Place on wall near entrance for dual-purpose monitoring
 - **Unattended sites:** Use external amplified speaker pointed toward building entrance
-- **24/7 NOC:** Integrate with call-out system (combine beeper with Telegram alerts from [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md))
+- **24/7 NOC:** Integrate with call-out system (combine beeper with Telegram alerts from [NetWatch Telegram Alerts](./netwatch-telegram-alerts))
 
 ## Related Configurations
 
-- **NetWatch monitoring:** See [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md)
-- **Email alerts:** See [Send Logs to Email](./send-logs-to-email.md)
-- **Failover detection:** See [Firewall Logging](./enforce-dns-8.8.8.8.md)
+- **NetWatch monitoring:** See [NetWatch Telegram Alerts](./netwatch-telegram-alerts)
+- **Email alerts:** See [Send Logs to Email](../Email/send-logs-to-email)
+- **Failover detection:** See [Starlink Firewall Rules](../Security/starlink-firewall-rules)
 - **System monitoring:** Combine with CPU/memory alerts
 
 ## Device Compatibility Matrix
@@ -419,6 +419,6 @@ Combine with [Send Logs to Email](./send-logs-to-email.md):
 - Simulate internet down to verify alert triggers
 - Document alert sound pattern for team
 - Consider external speaker for better audibility
-- Combine with Telegram alerts from [NetWatch Telegram Alerts](./netwatch-telegram-alerts.md)
+- Combine with Telegram alerts from [NetWatch Telegram Alerts](./netwatch-telegram-alerts)
 - Back up configuration: `/system backup save`
 - Test monthly to ensure beeper still functions

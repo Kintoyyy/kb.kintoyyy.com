@@ -11,13 +11,13 @@ Automatically collect system logs from your MikroTik router and email them to yo
 
 - ✅ MikroTik RouterOS device with email service enabled
 - ✅ Gmail account (or SMTP server credentials)
-- ✅ Email service already configured (see [Email Backup](./email-backup.md) for setup)
+- ✅ Email service already configured (see [Email Backup](./email-backup) for setup)
 - ✅ Router has internet connectivity
 - ✅ Access to RouterOS console (SSH, Winbox, or WinBox)
 - ✅ Sufficient disk space for temporary log files
 
 :::info
-This guide assumes you've already configured SMTP settings. If not, complete the [Email Backup](./email-backup.md) guide first.
+This guide assumes you've already configured SMTP settings. If not, complete the [Email Backup](./email-backup) guide first.
 :::
 
 ## Configuration Steps
@@ -133,7 +133,7 @@ This guide assumes you've already configured SMTP settings. If not, complete the
 | Issue | Cause | Solution |
 |-------|-------|----------|
 | Email contains no logs | Logs were cleared | Set `clearLogs = 0` to preserve logs for testing |
-| "Error in sending the email" message | Email service not configured | Complete [Email Backup](./email-backup.md) setup; test with `/tool e-mail send` |
+| "Error in sending the email" message | Email service not configured | Complete [Email Backup](./email-backup) setup; test with `/tool e-mail send` |
 | Large email files | Too many logs being kept | Reduce `memory-lines` value (e.g., `500` instead of `1000`) |
 | Script runs but no email received | Script timing issue | Increase `:delay` to `10s`; check email spam folder |
 | "Log file already exists" error | Previous script failed to cleanup | Manually remove: `/file remove "logs backup"` |
@@ -181,5 +181,5 @@ Set `clearLogs = 0` to keep logs on the router even after emailing.
 **Next steps:**
 - Test the scheduler by checking your email tomorrow at the scheduled time
 - Store received log files in a centralized location for audit trails
-- Combine with [Email Backup](./email-backup.md) to have complete monitoring
+- Combine with [Email Backup](./email-backup) to have complete monitoring
 - Consider setting up different log email frequencies for different topics (interfaces, user activity, etc.)

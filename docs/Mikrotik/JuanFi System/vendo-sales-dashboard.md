@@ -326,9 +326,9 @@ Vendo 03		10.1.3.2	error! - offline
 
 ## Related Guides
 
-- [Vendo Nightlight Control](./vendo-nightlight-control.md)
-- [Vendo System Restart](./vendo-restart-system.md)
-- [NetWatch Telegram Alerts](../netwatch-telegram-alerts.md)
+- [Vendo Nightlight Control](./vendo-nightlight-control)
+- [Vendo System Restart](./vendo-restart-system)
+- [NetWatch Telegram Alerts](../netwatch-telegram-alerts)
 
 ## Completion
 

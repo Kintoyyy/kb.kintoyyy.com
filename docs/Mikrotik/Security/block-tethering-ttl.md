@@ -203,9 +203,9 @@ Then check: `/log print where topics~"mangle"`
 
 ## Related Configurations
 
-- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8.md)
-- **Bandwidth limiting:** `/queue tree` rules to limit speed
-- **Connection limiting:** `/ip firewall filter` to drop excessive connections
+- **DNS enforcement:** See [Enforce DNS to Google](./enforce-dns-8.8.8.8)
+- **Bandwidth limiting:** See [Guest Bandwidth Control](../Bandwidth/guest-bandwidth-dhcp-on-up)
+- **Connection limiting:** See [Starlink Firewall Rules](./starlink-firewall-rules)
 - **Packet inspection:** Enable DPI (Deep Packet Inspection) in `/ip firewall layer7-protocol`
 
 ## Completion

@@ -321,9 +321,9 @@ Then add rule:
 
 ## Related Guides
 
-- [VPN Game Routing](./vpn-game-routing.md)
-- [Cloud DDNS Routing](./cloud-ddns-routing.md)
-- [Guest Bandwidth](./guest-bandwidth-dhcp-on-up.md)
+- [VPN Game Routing](./vpn-game-routing)
+- [Cloud DDNS Routing](./cloud-ddns-routing)
+- [Guest Bandwidth](../Bandwidth/guest-bandwidth-dhcp-on-up)
 
 ## Completion
 

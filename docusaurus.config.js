@@ -83,7 +83,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Kintoyyy KB',
+        title: 'Kintoyyy Knowledge Base',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',

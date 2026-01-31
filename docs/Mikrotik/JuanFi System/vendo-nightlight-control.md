@@ -415,9 +415,9 @@ Use nightlight state as part of overall power consumption tracking.
 
 ## Related Configurations
 
-- **Telegram alerts:** See [NetWatch Telegram Alerts](../netwatch-telegram-alerts.md)
-- **Email notifications:** See [Send Logs to Email](../send-logs-to-email.md)
-- **Scheduling tasks:** See [Guest Bandwidth DHCP On-Up](../guest-bandwidth-dhcp-on-up.md)
+- **Telegram alerts:** See [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts)
+- **Email notifications:** See [Send Logs to Email](../Email/send-logs-to-email)
+- **Scheduling tasks:** See [Guest Bandwidth DHCP On-Up](../Bandwidth/guest-bandwidth-dhcp-on-up)
 - **Vendo management:** Consult JuanFi System documentation
 
 ## Completion
