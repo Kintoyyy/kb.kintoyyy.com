@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **Docusaurus v3.9.2** documentation site hosting practical knowledge about Proxmox, MikroTik, Networking, and Scripting. The site is focused on real-world setups with clear, repeatable procedures.
+This is a **Docusaurus v3.9.2** documentation site hosting practical knowledge about Proxmox, MikroTik, Networking, and JuanFi vending systems. The site is focused on real-world setups with clear, repeatable procedures.
 
 **Key Details:**
 - **Language:** JavaScript/JSX with Markdown content
@@ -10,6 +10,11 @@ This is a **Docusaurus v3.9.2** documentation site hosting practical knowledge a
 - **Package Manager:** npm/yarn
 - **Deployment:** GitHub Pages with automatic builds
 - **URL:** https://kb.kintoyyy.com
+
+**Content Inventory:**
+- **17 MikroTik Guides** - Routing, firewall, RADIUS, monitoring
+- **8 JuanFi System Guides** - Vending automation
+- **2 Proxmox Guides** - Virtualization, post-install
 
 ---
 
@@ -19,8 +24,9 @@ This is a **Docusaurus v3.9.2** documentation site hosting practical knowledge a
 project/
 ├── docs/                  # Main documentation (auto-indexed by Docusaurus)
 │   ├── intro.md          # Home page
-│   ├── Mikrotik/         # MikroTik topic collection (label in _category_.json)
-│   │   └── JuanFi System/  # Subcategory with guides (position-based ordering)
+│   ├── Proxmox/          # Proxmox virtualization guides
+│   ├── Mikrotik/         # MikroTik topic collection (17 guides)
+│   │   └── JuanFi System/  # Vending automation subcategory (8 guides)
 │   └── tutorial-basics/  # Default Docusaurus example (can be removed)
 ├── blog/                 # Blog posts (separate from docs, RSS enabled)
 ├── src/
@@ -93,10 +99,11 @@ yarn deploy       # Build + push to gh-pages branch (GitHub Pages)
 - **Code blocks:** Always specify language (bash, javascript, json, etc.)
 
 ### 2. **Document Structure Pattern (Strict Template)**
-All technical guides MUST follow this exact pattern:
-1. **Emoji Header + Overview** (2-3 sentences: What problem? What's the benefit?)
-2. **Info Box** - Key bullet points about functionality
-3. **Prerequisites** - Checklist of requirements (✅ style)
+All technical gui** (NO "## Overview" section - start directly with content)
+2. **Introductory paragraph** (2-3 sentences: What problem? What's the benefit?)
+3. **Info Box** - Key bullet points about functionality
+4. **Prerequisites** - Checklist of requirements (✅ style)
+5. **Prerequisites** - Checklist of requirements (✅ style)
 4. **Warning Box** - Specific considerations/caveats
 5. **Configuration Steps** - Option A (Terminal) and Option B (WebFig)
 6. **Understanding the Configuration** - Flow diagram + Components table
@@ -119,11 +126,11 @@ All technical guides MUST follow this exact pattern:
   - 🔊 Monitoring/Alerts (netwatch-telegram-alerts, beeper-alert-internet-down)
 
 ### 3. **Linking Between Docs**
-```markdown
-[Link text](./relative/path/to/file.md)    # Same directory navigation
-[Link text](../parent/file.md)              # Parent directory
-[Link text](../../docs/Mikrotik/file.md)    # Absolute from project root
+```markdown)    # Same directory navigation (NO .md extension)
+[Link text](../parent/file)              # Parent directory (NO .md extension)
+[Link text](../../docs/Mikrotik/file)    # Absolute from project root (NO .md extension)
 ```
+**CRITICAL:** Never include `.md` extensions in links. ```
 Docusaurus auto-generates valid URLs at build time.
 
 ### 4. **Blog Post Front Matter**
@@ -211,14 +218,20 @@ See `docs/Mikrotik/cloud-ddns-routing.md` for complete pattern:
 - Related guides linking to related docs
 - Completion confirmation with emoji
 
-### Sidebar Positioning - Main MikroTik Guides
-Current count: 15 guides + Welcome (sidebar_position 1-15)
+### Sidebar Posi7 guides + Welcome (sidebar_position 1-17)
 1. Welcome (1), Email Backup (2), Send Logs (3), Enforce DNS (4)
 2. Block Tethering (5), Starlink Firewall (6), Block ChromeCast (7)
 3. Guest Bandwidth (8), NetWatch Telegram (9), Payment Popup (10)
 4. Beeper Alert (11), Connect OLT (12), VPN Game Routing (13)
-5. Cloud DDNS (14), Speedtest Routing (15)
+5. Cloud DDNS (14), Speedtest Routing (15), RADIUS Server (16), Access Concentrator (17)
 
+When adding new guides, increment sidebar_position to maintain order.
+
+### Proxmox Guides
+Path: `docs/Proxmox/`
+Current count: 2 guides
+- Post-Install Configuration (1)
+- Install MikroTik CHR (2)
 When adding new guides, increment sidebar_position to maintain order.
 
 ### JuanFi System Guides
@@ -257,7 +270,9 @@ See `docs/Mikrotik/_category_.json` and `docs/Mikrotik/JuanFi System/_category_.
 
 ### Deploy Changes
 - All changes to `main` branch auto-deploy to GitHub Pages
-- Deploy script uses `GIT_USER` env var (see README.md)
+- DeNo "## Overview" headers:** Start directly with intro paragraph after title (new convention)
+- **No .md extensions in links:** Use `[text](./file)` not `[text](./file.md)` (new convention)
+- **ploy script uses `GIT_USER` env var (see README.md)
 - Built site appears in `build/` directory
 
 ---

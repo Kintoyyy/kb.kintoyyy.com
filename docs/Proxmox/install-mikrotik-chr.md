@@ -1,10 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # 🖥️ Install MikroTik CHR
-
-## Overview
 
 Install MikroTik Cloud Hosted Router (CHR) as a Proxmox virtual machine. CHR is a lightweight RouterOS that runs on x86 hardware, perfect for testing MikroTik configurations in labs, creating virtual network appliances, or running isolated routers inside Proxmox clusters. CHR uses minimal resources (4GB RAM, 2 vCPU) while providing full RouterOS functionality.
 
