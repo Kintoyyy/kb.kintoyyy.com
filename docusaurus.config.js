@@ -96,7 +96,6 @@ const config = {
             label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/#support', label: 'Support', position: 'left'},
           {
             type: 'html',
             position: 'right',
