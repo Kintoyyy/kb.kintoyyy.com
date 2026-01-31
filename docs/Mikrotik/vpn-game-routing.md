@@ -334,12 +334,6 @@ VPN Server: Forwards to Game Server (appears from VPN IP)
 3. **CPU load:** Encryption/decryption on router CPU - monitor with `/system resource print`
 4. **Concurrent games:** Each game creates separate address-list entry - limit if many players
 
-## Related Guides
-
-- [Block Tethering by TTL](../block-tethering-ttl.md)
-- [Enforce DNS](../enforce-dns-8.8.8.8.md)
-- [Guest Bandwidth Control](../guest-bandwidth-dhcp-on-up.md)
-
 ## Completion
 
 ✅ **Gaming VPN routing is configured!**

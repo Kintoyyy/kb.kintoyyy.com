@@ -196,4 +196,3 @@ Add exception rule before NAT rules:
 - Monitor resolution performance for 24 hours
 - Check client logs for any DNS-related errors
 - Consider implementing DNS caching for performance: `/ip dns cache print`
-- Combine with [Firewall Logging](../path-if-exists.md) to audit DNS queries
