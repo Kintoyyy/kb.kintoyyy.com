@@ -28,3 +28,19 @@
   --ifm-color-primary-lightest: #c5c4ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.navbar-support-button {
+  background: var(--ifm-color-primary);
+  color: white !important;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.navbar-support-button:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(109, 108, 230, 0.35);
+}

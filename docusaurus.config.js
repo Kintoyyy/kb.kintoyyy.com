@@ -96,6 +96,12 @@ const config = {
             label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/#support', label: 'Support', position: 'left'},
+          {
+            type: 'html',
+            position: 'right',
+            value: '<a class="navbar__item navbar__link navbar-support-button" href="/#support">Support</a>',
+          },
           {
             href: 'https://github.com/kintoyyy/kb.kintoyyy.com',
             label: 'GitHub',

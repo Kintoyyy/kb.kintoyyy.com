@@ -350,6 +350,80 @@
   box-shadow: 0 8px 16px rgba(109, 108, 230, 0.3);
 }
 
+.donateButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 2px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.donateButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(109, 108, 230, 0.35);
+}
+
+.donateOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 999;
+}
+
+.donateModal {
+  background: var(--ifm-card-background-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: min(520px, 95vw);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.donateHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.donateClose {
+  background: transparent;
+  border: none;
+  color: var(--ifm-heading-color);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.donateNote {
+  color: var(--ifm-text-color-secondary);
+  margin: 0.75rem 0 1.25rem;
+  line-height: 1.6;
+}
+
+.donateQr {
+  width: min(320px, 80vw);
+  display: block;
+  margin: 0 auto 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: white;
+  padding: 0.75rem;
+}
+
+.donateActions {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 3rem 1rem;
@@ -430,5 +504,10 @@
   .contactLink {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
+  }
+
+  .donateButton {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import React, {useEffect, useState} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -44,8 +44,8 @@ function HomepageHeader() {
             <div className={styles.statLabel}>Proxmox Guides</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>100%</div>
-            <div className={styles.statLabel}>Tested & Production Ready</div>
+            <div className={styles.statNumber}>1+</div>
+            <div className={styles.statLabel}>Docker Guides</div>
           </div>
         </div>
       </div>
@@ -55,6 +55,18 @@ function HomepageHeader() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  const [isDonateOpen, setIsDonateOpen] = useState(false);
+  useEffect(() => {
+    const openIfHashMatches = () => {
+      const hash = window.location.hash;
+      if (hash === '#support' || hash === '#donate') {
+        setIsDonateOpen(true);
+      }
+    };
+    openIfHashMatches();
+    window.addEventListener('hashchange', openIfHashMatches);
+    return () => window.removeEventListener('hashchange', openIfHashMatches);
+  }, []);
   return (
     <Layout
       title={`${siteConfig.title} - Network Infrastructure Knowledge Base`}
@@ -177,7 +189,7 @@ export default function Home() {
         </section>
 
         {/* Connect Section */}
-        <section className={styles.connectSection}>
+        <section className={styles.connectSection} id="support">
           <div className="container">
             <Heading as="h2" className={styles.connectTitle}>
               Get in Touch
@@ -194,9 +206,57 @@ export default function Home() {
                 <span>✉️</span>
                 <span>Email</span>
               </a>
+              <button
+                type="button"
+                className={styles.donateButton}
+                onClick={() => setIsDonateOpen(true)}>
+                💜 Support This Project
+              </button>
             </div>
           </div>
         </section>
+
+        {isDonateOpen && (
+          <div
+            className={styles.donateOverlay}
+            onClick={() => setIsDonateOpen(false)}
+            role="presentation">
+            <div
+              className={styles.donateModal}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Support this project"
+              onClick={(event) => event.stopPropagation()}>
+              <div className={styles.donateHeader}>
+                <Heading as="h3">💜 Support This Project</Heading>
+                <button
+                  type="button"
+                  className={styles.donateClose}
+                  onClick={() => setIsDonateOpen(false)}
+                  aria-label="Close support dialog">
+                  ✕
+                </button>
+              </div>
+              <p className={styles.donateNote}>
+                Your support helps keep these guides free and up to date. Scan the QR code to donate.
+              </p>
+              <img
+                className={styles.donateQr}
+                src="/img/qr.jpg"
+                alt="Donate QR code"
+                loading="lazy"
+              />
+              <div className={styles.donateActions}>
+                <button
+                  type="button"
+                  className={styles.secondaryButton}
+                  onClick={() => setIsDonateOpen(false)}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </Layout>
   );
