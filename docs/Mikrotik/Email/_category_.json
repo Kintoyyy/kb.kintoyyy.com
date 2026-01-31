@@ -3,6 +3,7 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Backups and log delivery via email."
+    "description": "Backups and log delivery via email.",
+    "slug": "/category/email-logs"
   }
 }

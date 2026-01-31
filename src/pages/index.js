@@ -169,12 +169,12 @@ export default function Home() {
                 <h3>Read the Introduction</h3>
                 <p>Get familiar with the knowledge base structure and navigation</p>
               </Link>
-              <Link to="/docs/category/-security--firewall" className={styles.quickStartCard}>
+              <Link to="/docs/category/security-firewall" className={styles.quickStartCard}>
                 <div className={styles.quickStartIcon}>🔒</div>
                 <h3>Security & Firewall</h3>
                 <p>Secure your network with proven firewall configurations</p>
               </Link>
-              <Link to="/docs/category/-routing--pbr" className={styles.quickStartCard}>
+              <Link to="/docs/category/routing-pbr" className={styles.quickStartCard}>
                 <div className={styles.quickStartIcon}>🌐</div>
                 <h3>Routing Guides</h3>
                 <p>Master traffic routing and policy-based forwarding</p>

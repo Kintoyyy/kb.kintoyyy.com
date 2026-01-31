@@ -3,6 +3,7 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Uptime checks, alerts, and latency monitoring."
+    "description": "Uptime checks, alerts, and latency monitoring.",
+    "slug": "/category/monitoring-alerts"
   }
 }
