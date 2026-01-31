@@ -92,16 +92,31 @@ yarn deploy       # Build + push to gh-pages branch (GitHub Pages)
 - **Tables:** Standard Markdown tables for config/troubleshooting
 - **Code blocks:** Always specify language (bash, javascript, json, etc.)
 
-### 2. **Document Structure Pattern (See JuanFi System docs)**
-All technical guides follow this pattern:
-1. **Emoji Header + Overview** - What problem does this solve?
-2. **Prerequisites** - Checklist of requirements
-3. **Step-by-step instructions** - Split into numbered sections with options (A/B)
-4. **Verification** - How to confirm it worked
-5. **Troubleshooting table** - Issue → Cause → Solution
-6. **Completion message** - Celebration with emoji + next steps
+### 2. **Document Structure Pattern (Strict Template)**
+All technical guides MUST follow this exact pattern:
+1. **Emoji Header + Overview** (2-3 sentences: What problem? What's the benefit?)
+2. **Info Box** - Key bullet points about functionality
+3. **Prerequisites** - Checklist of requirements (✅ style)
+4. **Warning Box** - Specific considerations/caveats
+5. **Configuration Steps** - Option A (Terminal) and Option B (WebFig)
+6. **Understanding the Configuration** - Flow diagram + Components table
+7. **Verification** - Step-by-step tests with specific commands
+8. **Troubleshooting** - Issue/Cause/Solution table (10-12+ rows minimum)
+9. **Advanced Options** - 8-12 variations/extensions (separate code blocks)
+10. **Related Guides** - Links to related documentation
+11. **Completion** - Emoji celebration + next steps
 
-**Example files:** `docs/Mikrotik/JuanFi System/*.md`
+**Example files:** `docs/Mikrotik/cloud-ddns-routing.md`, `docs/Mikrotik/speedtest-traffic-routing.md`, `docs/Mikrotik/JuanFi System/*.md`
+
+### 3. **Title Format Requirements**
+- Keep titles SHORT: 2-4 words maximum
+- Include emoji prefix matching topic category:
+  - 📧 Email/Logging (email-backup, send-logs-to-email)
+  - 🔒 Security/Firewall (enforce-dns-8.8.8.8, block-tethering-ttl)
+  - 💡 Control/Automation (payment-reminder-popup, vendo-nightlight-control)
+  - 🌐 Networking/Routing (cloud-ddns-routing, vpn-game-routing)
+  - 🚀 Performance/Optimization (speedtest-traffic-routing, guest-bandwidth-dhcp-on-up)
+  - 🔊 Monitoring/Alerts (netwatch-telegram-alerts, beeper-alert-internet-down)
 
 ### 3. **Linking Between Docs**
 ```markdown
@@ -120,6 +135,14 @@ tags: [tag1, tag2]           # For blog categorization
 ---
 ```
 See `blog/authors.yml` and `blog/tags.yml` for available values.
+
+### 5. **MikroTik Scripting Patterns**
+MikroTik guides use RouterOS scripting syntax. Key conventions:
+- **Terminal code blocks** use `routeros` language tag for syntax highlighting
+- **Variables** use MikroTik syntax: `:local varname` (not bash `$variable`)
+- **Always provide BOTH terminal AND WebFig approaches** (never GUI-only)
+- **Terminal examples** include realistic IP addresses/gateway names that MUST be replaced
+- **WebFig steps** describe exact navigation path with field values
 
 ---
 
@@ -175,21 +198,42 @@ sidebar_position: 1
 ```
 
 ### Technical Guide Structure
-See `docs/Mikrotik/JuanFi System/1970-bug.md` for complete pattern:
-- Overview section with emoji
-- Prerequisites checklist
-- Options A (terminal) / B (GUI) for configuration
-- Verification steps with specific commands
-- Troubleshooting table format
-- Completion confirmation
+See `docs/Mikrotik/cloud-ddns-routing.md` for complete pattern:
+- Overview section with emoji + 2-3 sentence summary
+- Info box with key bullet points
+- Prerequisites checklist with ✅ style
+- Warning box for caveats
+- Option A (Terminal) / Option B (WebFig) configuration
+- Understanding section with flow diagram + components table
+- Verification steps with specific RouterOS commands
+- Troubleshooting table (minimum 10-12 rows)
+- Advanced options (8-12+ variations, each with code block)
+- Related guides linking to related docs
+- Completion confirmation with emoji
+
+### Sidebar Positioning - Main MikroTik Guides
+Current count: 15 guides + Welcome (sidebar_position 1-15)
+1. Welcome (1), Email Backup (2), Send Logs (3), Enforce DNS (4)
+2. Block Tethering (5), Starlink Firewall (6), Block ChromeCast (7)
+3. Guest Bandwidth (8), NetWatch Telegram (9), Payment Popup (10)
+4. Beeper Alert (11), Connect OLT (12), VPN Game Routing (13)
+5. Cloud DDNS (14), Speedtest Routing (15)
+
+When adding new guides, increment sidebar_position to maintain order.
+
+### JuanFi System Guides
+Path: `docs/Mikrotik/JuanFi System/`
+Current count: 4 core guides + 4 pre-existing (sidebar_position 1-8)
+- Core: Vendo Nightlight (1), Vendo Restart (2), Sales Dashboard (3), Cleanup Expired (4)
+- Pre-existing: Address List (5), Fix 1970 Bug (6), Auto Binding (7), Sales Reset (8)
 
 ### Category Metadata
-See `docs/Mikrotik/JuanFi System/_category_.json`:
+See `docs/Mikrotik/_category_.json` and `docs/Mikrotik/JuanFi System/_category_.json`:
 ```json
 {
-  "label": "JuanFi System",
+  "label": "Category Name",
   "position": 2,
-  "link": { "type": "generated-index", "description": "..." }
+  "link": { "type": "generated-index", "description": "Category overview text" }
 }
 ```
 
@@ -226,6 +270,11 @@ See `docs/Mikrotik/JuanFi System/_category_.json`:
 - **Image paths are relative:** Images in `docs/Mikrotik/JuanFi System/img/` referenced as `./img/filename.png`
 - **Front matter matters:** Missing `sidebar_position` can cause doc ordering issues
 - **Category descriptions auto-generate index pages**—no need to manually create index.md files
+- **RouterOS code blocks:** MUST use `routeros` language tag, not generic `bash` or `shell`
+- **Dual configuration:** Every technical guide requires both terminal AND WebFig approaches—never GUI-only or terminal-only
+- **Cross-references:** Link related guides at the end of each guide for discoverability
+- **Troubleshooting depth:** Minimum 10-12 rows in troubleshooting tables covering edge cases and common issues
+- **Advanced options:** Provide 8-12+ practical variations/extensions beyond basic configuration
 
 ---
 

@@ -2,9 +2,8 @@
 sidebar_position: 3
 ---
 
-# 🤖 AUTO STATIC SCRIPT
+# 🤖 Auto Static Binding
 
-## Overview
 
 The **Auto Bind Vendo Script** automatically assigns static IP addresses to NodeMCU devices (Vendo hardware) when they connect to your MikroTik DHCP server. This eliminates manual IP management and ensures each Vendo maintains a consistent IP address.
 

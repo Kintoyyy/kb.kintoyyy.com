@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 
-# 📋 VENDO ADDRESS LIST
-
-## Overview
+# 📋 Vendo Address List
 
 An **Address List** in MikroTik is a dynamic collection of IP addresses that can be referenced in firewall rules. Creating an address list for your Vendo machines allows you to:
 - ✅ Apply consistent firewall rules to all Vendos

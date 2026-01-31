@@ -2,9 +2,8 @@
 sidebar_position: 4
 ---
 
-# 💰 UPDATED SALES RESET
+# 💰 Sales Reset
 
-## Overview
 
 This guide explains how to set up automated daily and monthly sales reset for your JuanFi Vendo system. The script automatically resets income counters at midnight each day and on the first day of each month.
 
