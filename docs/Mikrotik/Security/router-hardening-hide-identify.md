@@ -790,11 +790,10 @@ Client knocks: `9001 → 9002 → 9003` in sequence, then SSH port opens for 60s
 
 ## Related Guides
 
-- [BFD Failover & Health Checks](./bfd-failover)
-- [MikroTik Failover Methods](./failover-methods-comparison)
-- [OSPF Dynamic Routing](./ospf-ptp)
-- [Firewall NAT Configuration](../Security/firewall-nat-masquerade)
-- [VPN Access Control](../Security/vpn-access-hardening)
+- [MikroTik Failover Methods](../Routing/failover-methods-comparison)
+- [Policy-Based Routing (PBR) for Call Center VPNs](../Routing/pbr-call-center-vpn)
+- [Policy-Based Routing (PBR) for GCash](../Routing/pbr-gcash-mobile-wallet)
+- [Quality of Service (QoS) Setup](../Bandwidth/guest-bandwidth-dhcp-on-up)
 
 ---
 

@@ -700,11 +700,10 @@ add name="isp2-queue" parent=ether2 direction=in limit-at=50M target=192.168.1.2
 
 ## Related Guides
 
-- [BFD Failover (Sub-Second Detection)](../bfd-failover)
-- [OSPF Dynamic Routing](./ospf-ptp)
-- [Policy-Based Routing (PBR)](./pbr-advanced)
-- [BGP Failover with AS-Path](./bgp-failover)
+- [Policy-Based Routing (PBR) for Call Center VPNs](./pbr-call-center-vpn)
+- [Policy-Based Routing (PBR) for GCash](./pbr-gcash-mobile-wallet)
 - [Quality of Service (QoS) Setup](../Bandwidth/guest-bandwidth-dhcp-on-up)
+- [MikroTik Security Hardening](../Security/router-hardening-hide-identify)
 
 ---
 

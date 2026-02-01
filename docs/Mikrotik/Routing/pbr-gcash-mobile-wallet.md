@@ -661,7 +661,7 @@ Distance 2 (backup) kicks in if distance 1 gateway is unreachable.
 - [Policy-Based Routing (PBR) for Call Center VPNs](./pbr-call-center-vpn)
 - [MikroTik Failover Methods](./failover-methods-comparison)
 - [Quality of Service (QoS) Setup](../Bandwidth/guest-bandwidth-dhcp-on-up)
-- [Firewall Mangle Rules Deep Dive](../Security/firewall-mangle-advanced)
+- [MikroTik Security Hardening](../Security/router-hardening-hide-identify)
 
 ---
 

@@ -639,9 +639,8 @@ add dst-address=0.0.0.0/0 gateway=192.168.1.1 routing-table=main
 
 ## Related Guides
 
-- [BFD Failover (Sub-Second Detection)](./bfd-failover)
 - [MikroTik Failover Methods](./failover-methods-comparison)
-- [OSPF Dynamic Routing](./ospf-ptp)
+- [Policy-Based Routing (PBR) for GCash](./pbr-gcash-mobile-wallet)
 - [Quality of Service (QoS) Setup](../Bandwidth/guest-bandwidth-dhcp-on-up)
 - [MikroTik Security Hardening](../Security/router-hardening-hide-identify)
 
