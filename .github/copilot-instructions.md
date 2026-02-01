@@ -15,28 +15,41 @@ yarn deploy  # Build + push to GitHub Pages
 
 ## Architecture Overview
 
-This is a **Docusaurus static site** hosting 25+ infrastructure guides organized by topic:
+This is a **Docusaurus static site** hosting 30+ infrastructure guides organized by topic:
 
 ```
 docs/
 ├── intro.md                          # Homepage
-├── Mikrotik/                         # 17+ guides organized in subcategories
+├── Mikrotik/                         # 20+ guides organized in subcategories
 │   ├── Routing/       (_category_.json with slug: /category/routing-pbr)
 │   ├── Security/      (_category_.json with slug: /category/security-firewall)
 │   ├── ISP/           (_category_.json with slug: /category/isp-infrastructure)
 │   ├── Monitoring/    (_category_.json with slug: /category/monitoring-alerts)
 │   ├── Email/         (_category_.json with slug: /category/email-logs)
-│   ├── Container/
+│   ├── Container/     (Docker deployments: Pi-hole, Smokeping)
 │   ├── Bandwidth/     (_category_.json with slug: /category/bandwidth-qos)
 │   ├── JuanFi System/ (8 guides: vending automation subcategory)
 │   └── _category_.json
-├── Proxmox/                         # 4 infrastructure guides (VE virtualization)
+├── OLT/                             # Optical Line Terminal (GPON/EPON/BSCom)
+│   ├── VSOL/          (gpon-vlan-configuration.md, epon-vlan-configuration.md)
+│   ├── bscom-vlan-configuration.md
+│   └── _category_.json
+├── Proxmox/                         # 4+ infrastructure guides (VE virtualization)
 │   ├── pci-passthrough-setup.md
 │   ├── pcie-passthrough-fix.md
 │   ├── efi-boot-fix.md
 │   ├── windows-11-vm.md
 │   └── _category_.json
-└── tutorial-basics/                 # Default Docusaurus template (safe to ignore)
+├── Docker/                          # Container deployments
+│   ├── smokeping-master-slave-deployment.md
+│   └── _category_.json
+├── LibreQos/                        # Quality of Service management
+│   └── _category_.json
+└── Network/                         # Networking fundamentals
+    ├── vlan-configuration.md
+    ├── routing-fundamentals.md
+    ├── understanding-subnets.md
+    └── _category_.json
 ```
 
 **Key Insight:** Each subcategory folder REQUIRES a `_category_.json` with explicit `"slug"` property to prevent Docusaurus chunk loading errors (e.g., "ChunkLoadError: Loading chunk ... failed").
@@ -190,6 +203,30 @@ Example:
 
 ---
 
+## OLT/Networking Equipment Patterns
+
+### Equipment-Specific Guides
+OLT guides follow vendor-specific syntax (VSOL, BSCom) with:
+- **Flow Mapping** - Maps UNI ports to virtual ports and VLANs (GPON)
+- **Hybrid Port Mode** - Mix tagged/untagged VLANs on single port (EPON)
+- **Tcont/Gemport** - Bandwidth allocation and service mapping
+- **ONU Type Templates** - Profile matching specific ONU models
+
+### Network Topology Diagrams
+Use ASCII art diagrams showing data flow:
+```
+[Internet] ──── [Router] ──── [OLT] ──── [ONUs] ──── [Customers]
+```
+
+### Configuration Structure
+1. **Understanding section** with network topology diagram
+2. **Step-by-step CLI commands** (bash for network equipment)
+3. **Verification** with expected outputs
+4. **Troubleshooting table** with Issue/Cause/Solution columns
+5. **Integration with MikroTik** section (where applicable)
+
+---
+
 ## Cross-Category Linking Best Practices
 
 When linking between MikroTik subcategories or to Proxmox:
@@ -204,9 +241,18 @@ When linking between MikroTik subcategories or to Proxmox:
 # From MikroTik to Proxmox
 [Windows 11 VM setup](../../Proxmox/windows-11-vm)
 
-# From JuanFi System/ to parent Mikrotik guides
-[LibreQoS setup](../../Mikrotik/libreqos-installation)
+# From OLT/VSOL/ to Network fundamentals
+[VLAN fundamentals](../../Network/vlan-configuration)
+
+# From OLT/ to OLT/VSOL/ subfolder
+[EPON configuration](./VSOL/epon-vlan-configuration)
 ```
+
+**Path Rules:**
+- Same category: `./file` or `../Subcategory/file`
+- Cross top-level: `../../Category/file` or `../../Category/Subcategory/file`
+- Never use absolute paths or `/docs/` prefix
+- Test with `yarn build` - all links must resolve correctly
 
 ---
 
@@ -284,8 +330,10 @@ When adding a new guide:
 ## Recent Codebase Updates (As of Feb 2026)
 
 ✅ **New MikroTik Subcategories:** Routing, Security, ISP, Monitoring, Email, Container, Bandwidth  
-✅ **New Guides:** OSPF PTP, BFD failover, Windows 11 VM, PCIe RMRR fix, EFI boot fix  
+✅ **New OLT Category:** VSOL (GPON/EPON), BSCom vendor-specific configurations  
+✅ **New Docker Category:** Pi-hole and Smokeping container deployment guides  
+✅ **New Guides:** OSPF PTP, BFD failover, Windows 11 VM, PCIe RMRR fix, EFI boot fix, GPON/EPON VLAN configs  
 ✅ **Build Improvements:** All category slugs now explicit to prevent chunk loading  
 ✅ **Homepage Enhancement:** Donate modal with QR support button in navbar  
-✅ **Validation:** Build system passes with zero broken links
+✅ **Validation:** Build system passes with zero broken links (`onBrokenLinks: 'throw'`)
 

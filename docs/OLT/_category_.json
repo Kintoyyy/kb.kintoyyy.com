@@ -1,0 +1,9 @@
+{
+  "label": "OLT Configuration",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Optical Line Terminal (OLT) configuration guides for GPON/EPON networks.",
+    "slug": "/category/olt-configuration"
+  }
+}

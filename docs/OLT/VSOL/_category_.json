@@ -1,0 +1,9 @@
+{
+  "label": "📡 VSOL",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "VSOL EPON OLT configuration and management guides.",
+    "slug": "/category/vsol-epon"
+  }
+}
