@@ -4,8 +4,6 @@ sidebar_position: 16
 
 # 🔐 Userman (Radius)
 
-## Overview
-
 Set up MikroTik as a RADIUS server to centralize authentication and billing for PPPoE users across multiple Access Concentrators (ACs). RADIUS (Remote Authentication Dial-In User Service) runs on a central server and manages user accounts, bandwidth tiers, and session tracking. Access Concentrators (AC) are high-capacity routers in the field that aggregate user PPPoE connections and query the RADIUS server for each authentication. Users authenticate once, get assigned to profiles (10Mbps, 20Mbps, 30Mbps) automatically, and the AC applies bandwidth limits. Useful for ISPs, WiFi hotspots, and multi-site networks needing centralized billing.
 
 :::info

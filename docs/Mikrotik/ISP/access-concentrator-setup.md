@@ -4,8 +4,6 @@ sidebar_position: 17
 
 # 🌐 Access Concentrator (AC)
 
-## Overview
-
 Set up MikroTik as an Access Concentrator (AC) to aggregate multiple PPPoE user connections and authenticate them against a remote RADIUS server. An AC is a field router that concentrates user connections, queries the central RADIUS server for authentication, and applies bandwidth profiles locally. Multiple ACs connect to one RADIUS server, enabling scalable, multi-location ISP networks. Users experience seamless roaming across ACs while maintaining consistent bandwidth profiles assigned by the RADIUS server.
 
 :::info
