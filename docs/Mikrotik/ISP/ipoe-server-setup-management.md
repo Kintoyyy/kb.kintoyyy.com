@@ -898,12 +898,12 @@ add name=relay interface=ether1 dhcp-server=192.168.1.100 \
 ## 🔗 Related Guides
 
 - [PPPoE Server PADO Delay Failover](./pppoe-server-pado-delay-failover) — Dial-up alternative
-- [RADIUS Authentication Setup](../Monitoring/radius-server-authentication) — Centralized user management
-- [DHCP Server Configuration](./dhcp-server-advanced) — DHCP pool management
-- [Bandwidth Limiting per User](../Bandwidth/bandwidth-limiting-per-user) — Traffic control
 - [VLAN Configuration](../../Network/vlan-configuration) — Network segmentation
-- [Multi-WAN Failover](../ISP/multi-wan-failover-advanced) — Redundancy
-- [NetWatch Health Monitoring](../Monitoring/netwatch-health-check) — Service monitoring
+- **RADIUS Authentication Setup** — Centralized user management (coming soon)
+- **DHCP Server Configuration** — DHCP pool management (coming soon)
+- **Bandwidth Limiting per User** — Traffic control (coming soon)
+- **Multi-WAN Failover** — Redundancy (coming soon)
+- **NetWatch Health Monitoring** — Service monitoring (coming soon)
 
 ---
 

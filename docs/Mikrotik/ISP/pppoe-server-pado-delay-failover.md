@@ -608,12 +608,12 @@ add name=secondary_limit target=10.1.0.0/24 max-packet-queue=50 \
 
 ## 🔗 Related Guides
 
-- [PPPoE Server Basic Setup](./pppoe-server-basic) — Simple PPPoE configuration without RADIUS
-- [RADIUS Authentication Setup](../Monitoring/radius-server-authentication) — Centralized user management
-- [Multi-WAN Failover Configuration](../ISP/multi-wan-failover-advanced) — General failover concepts
-- [Bandwidth Limiting and QoS](../Bandwidth/bandwidth-limiting-per-user) — Traffic prioritization
-- [NetWatch Health Monitoring](../Monitoring/netwatch-health-check) — Service availability monitoring
-- [PPP Profile Optimization](./ppp-profile-advanced) — Advanced profile tuning
+- **PPPoE Server Basic Setup** — Simple PPPoE configuration without RADIUS (coming soon)
+- **RADIUS Authentication Setup** — Centralized user management (coming soon)
+- **Multi-WAN Failover Configuration** — General failover concepts (coming soon)
+- **Bandwidth Limiting and QoS** — Traffic prioritization (coming soon)
+- **NetWatch Health Monitoring** — Service availability monitoring (coming soon)
+- **PPP Profile Optimization** — Advanced profile tuning (coming soon)
 
 ---
 
