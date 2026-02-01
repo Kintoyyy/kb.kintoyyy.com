@@ -7,7 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-function HomepageHeader() {
+function HomepageHeader({onSupportClick}) {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={styles.heroBanner}>
@@ -19,7 +19,7 @@ function HomepageHeader() {
           Practical guides for Network Infrastructure, Virtualization & ISP Systems
         </p>
         <p className={styles.heroDescription}>
-          Expert-written documentation for deploying and managing MikroTik routers, Proxmox hypervisors, and advanced networking solutions.
+          Built from 3 years of hands-on networking experience. Real-world documentation for deploying and managing MikroTik routers, Proxmox hypervisors, OLT infrastructure, and advanced ISP solutions.
         </p>
         <div className={styles.buttonGroup}>
           <Link
@@ -32,19 +32,29 @@ function HomepageHeader() {
             to="/docs/category/mikrotik">
             🔧 MikroTik Guides
           </Link>
+          <button
+            type="button"
+            className={styles.donateButton}
+            onClick={onSupportClick}>
+            💜 Support This Project
+          </button>
         </div>
 
         <div className={styles.statsContainer}>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>27+</div>
+            <div className={styles.statNumber}>30+</div>
             <div className={styles.statLabel}>MikroTik Guides</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>4+</div>
+            <div className={styles.statNumber}>8+</div>
             <div className={styles.statLabel}>Proxmox Guides</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statNumber}>1+</div>
+            <div className={styles.statNumber}>10+</div>
+            <div className={styles.statLabel}>OLT Guides</div>
+          </div>
+          <div className={styles.statCard}>
+            <div className={styles.statNumber}>5+</div>
             <div className={styles.statLabel}>Docker Guides</div>
           </div>
         </div>
@@ -71,7 +81,7 @@ export default function Home() {
     <Layout
       title={`${siteConfig.title} - Network Infrastructure Knowledge Base`}
       description="Comprehensive guides for MikroTik, Proxmox, and advanced networking solutions. Real-world procedures, tested in production.">
-      <HomepageHeader />
+      <HomepageHeader onSupportClick={() => setIsDonateOpen(true)} />
       <main>
         {/* <HomepageFeatures /> */}
         
