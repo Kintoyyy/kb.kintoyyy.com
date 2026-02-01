@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 🔓 Port Forwarding Configuration
+# 🔓 Port Forwarding
 
 Port forwarding (Destination NAT) redirects incoming traffic from the internet to internal servers or devices, enabling external access to services like web servers, remote desktop, security cameras, and gaming servers while maintaining network security through controlled access.
 
