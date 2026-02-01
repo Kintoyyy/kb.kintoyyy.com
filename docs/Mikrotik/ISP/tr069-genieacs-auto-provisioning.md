@@ -876,8 +876,9 @@ server {
 - [IPoE Server Setup and Management](./ipoe-server-setup-management) — Always-on broadband connectivity
 - [VLAN Configuration](../../Network/vlan-configuration) — Network segmentation and tagging
 - [GenieACS Auto-Installer](../../Proxmox/genieacs-auto-installer) — Automated GenieACS deployment
+- [GPON VLAN Configuration](../../OLT/VSOL/gpon-vlan-configuration) — Optical line terminal setup
+- [EPON VLAN Configuration](../../OLT/VSOL/epon-vlan-configuration) — EPON optical setup
 - **DHCP Server Configuration** — Dynamic IP assignment (coming soon)
-- **OLT GPON/EPON Configuration** — Optical line terminal setup (coming soon)
 - **RADIUS Authentication Setup** — Centralized authentication (coming soon)
 - **Bandwidth Limiting per User** — QoS and traffic control (coming soon)
 

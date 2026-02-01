@@ -608,12 +608,11 @@ add name=secondary_limit target=10.1.0.0/24 max-packet-queue=50 \
 
 ## 🔗 Related Guides
 
-- **PPPoE Server Basic Setup** — Simple PPPoE configuration without RADIUS (coming soon)
-- **RADIUS Authentication Setup** — Centralized user management (coming soon)
-- **Multi-WAN Failover Configuration** — General failover concepts (coming soon)
-- **Bandwidth Limiting and QoS** — Traffic prioritization (coming soon)
-- **NetWatch Health Monitoring** — Service availability monitoring (coming soon)
-- **PPP Profile Optimization** — Advanced profile tuning (coming soon)
+- [IPoE Server Setup](./ipoe-server-setup-management) — Always-on alternative to PPPoE
+- [TR-069 GenieACS Provisioning](./tr069-genieacs-auto-provisioning) — Automated device management
+- [NetWatch Telegram Alerts](../Monitoring/netwatch-telegram-alerts) — Service availability monitoring
+- [Beeper Alert on Internet Down](../Monitoring/beeper-alert-internet-down) — Audio notifications
+- [Guest Bandwidth Management](../Bandwidth/guest-bandwidth-dhcp-on-up) — Traffic control
 
 ---
 
