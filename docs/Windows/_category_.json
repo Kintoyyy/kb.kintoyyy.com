@@ -1,0 +1,9 @@
+{
+  "label": "Windows",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Windows tools, utilities, and system guides.",
+    "slug": "/category/windows"
+  }
+}
