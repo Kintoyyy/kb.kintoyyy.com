@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 🪟 INstall Windows 11
+# 🪟 Install Windows 11
 
 This guide explains how to create a Windows 11 VM on Proxmox VE 8.2.2. It’s based on a working setup and may require adjustments for different hardware or environments.
 
