@@ -143,46 +143,30 @@ Epon-Olt(config)# download tftp image firmware.UBI 192.168.8.111
 
 Expected output during download:
 ```
-Downloading firmware via TFTP...
-Connecting to 192.168.8.111:69
-Retrieving firmware.UBI ...
-####################  1%
-####################  25%
-####################  50%
-####################  75%
-####################  100%
-Download complete: 234567890 bytes
-Verifying image... OK
-Upgrading firmware...
-Please do not power off!
+gpon-olt(config)# download tftp image V1600GS_UPGRADE_V1.1.0_20240409_ANY_H.tar 192.168.8.23
+Trying to download V1600GS_UPGRADE_V1.1.0_20240409_ANY_H.tar from server 192.168.8.23, please wait...
+
+1970/01/01 09:56:15   Download File Success           download V1600GS_UPGRADE_V1.1.0_20240409_ANY_H.tar success
+
+1970/01/01 09:56:32   Upgrade File Success            upgrade V1600GS_UPGRADE_V1.1.0_20240409_ANY_H.tar success
+
+gpon-olt(config)#
 ```
 
 Download typically takes 5-15 minutes depending on image size and network speed.
 
-### Step 6: Monitor Upgrade Progress
+### Step 6: Reboot OLT After Upgrade
 
-Watch for status messages:
-
-```
-Epon-Olt# show system upgrade-status
-Upgrade Status: IN_PROGRESS
-Progress: 67%
-Step: Writing to flash...
-Remaining Time: ~5 minutes
-```
-
-Or check OLT console for real-time progress (if serial connection active).
-
-### Step 7: Reboot OLT After Upgrade
-
-Once "upgrade complete" message appears, reboot:
+Once "upgrade complete" message appears, reboot with the `reboot` command:
 
 ```
-Epon-Olt(config)# reload
-Are you sure to reload the system? (yes/no): yes
-Rebooting...
-System will restart momentarily
-Connection closed
+gpon-olt(config)# reboot
+Are you sure want to reboot system? [Y/N]
+Y
+gpon-olt(config)#
+gpon-olt(config)# Connection to 192.168.8.200 closed by remote host.
+Connection to 192.168.8.200 closed.
+PS C:\Users\User>
 ```
 
 **DO NOT POWER OFF during reboot.** OLT will:
@@ -193,7 +177,7 @@ Connection closed
 
 Expected reboot time: **3-5 minutes**
 
-### Step 8: Verify Firmware Upgrade Success
+### Step 7: Verify Firmware Upgrade Success
 
 After reboot, reconnect and verify:
 
