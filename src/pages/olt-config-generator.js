@@ -244,6 +244,10 @@ const FIELD_LABELS = {
 
 function getOutput(tpl, params) {
   const p = { ...params };
+  if ('rangeSize' in tpl.fields) {
+    const rs = +p.rangeSize;
+    if (!rs || rs < 2) return '';
+  }
   return tpl.gen(p);
 }
 
@@ -273,9 +277,15 @@ export default function OltConfigGenerator() {
   const handleChange = (tplIdx, field, value, isText) => {
     setParams(prev => {
       const next = [...prev];
-      let v = isText ? value : +value;
-      if (field === 'rangeSize' && v > 11) v = 11;
-      next[tplIdx] = { ...next[tplIdx], [field]: v };
+      if (isText) {
+        next[tplIdx] = { ...next[tplIdx], [field]: value };
+      } else {
+        if (value === '') return prev;
+        const v = +value;
+        if (isNaN(v)) return prev;
+        const clamped = field === 'rangeSize' ? Math.min(11, Math.max(2, v)) : v;
+        next[tplIdx] = { ...next[tplIdx], [field]: clamped };
+      }
       return next;
     });
   };
@@ -342,7 +352,7 @@ export default function OltConfigGenerator() {
                         <input
                           type="number"
                           value={params[idx][k]}
-                          min={k === 'rangeSize' ? 1 : undefined}
+                          min={k === 'rangeSize' ? 2 : undefined}
                           max={k === 'rangeSize' ? 11 : undefined}
                           onChange={e => handleChange(idx, k, e.target.value, false)}
                         />
